@@ -7,15 +7,12 @@ import '../../ui/layouts/mainLayout.js';
 FlowRouter.route('/', {
   name: 'home',
   action() {
-    // if(!Meteor.userId()) {
-    //   FlowRouter.go('home');
-    // }
     BlazeLayout.render("mainLayout", { content: "Frontpage" });
   }
 });
 
 FlowRouter.route('/initial-assessment', {
-  name: 'intial',
+  name: 'initial-assessment',
   action() {
     BlazeLayout.render("mainLayout", { content: "InitialAssessment" });
   }
@@ -49,6 +46,13 @@ FlowRouter.route('/mi-ruled-out', {
   }
 });
 
+FlowRouter.route('/six-hour-mi-ruled-out', {
+  name: 'sixHourMiRuledOut',
+  action() {
+    BlazeLayout.render("mainLayout", { content: "SixHourMIRuledOut" });
+  }
+});
+
 FlowRouter.route('/myocardial-injury', {
   name: 'myocardialInjury',
   action() {
@@ -56,9 +60,29 @@ FlowRouter.route('/myocardial-injury', {
   }
 });
 
+FlowRouter.route('/six-hour-myocardial-injury', {
+  name: 'sixHourMyocardialInjury',
+  action() {
+    BlazeLayout.render("mainLayout", { content: "SixHourMyocardialInjury" });
+  }
+});
+
 FlowRouter.route('/3-hour-troponin', {
   name: 'threeHourTroponin',
   action() {
+    if(!Session.get('baselineTroponin')) {
+      FlowRouter.go('initial-assessment');
+    }
     BlazeLayout.render("mainLayout", { content: "ThreeHourTroponin" });
+  }
+});
+
+FlowRouter.route('/6-hour-troponin', {
+  name: 'sixHourTroponin',
+  action() {
+    if(!Session.get('baselineTroponin') || !Session.get('threeHourTroponin')) {
+      FlowRouter.go('initial-assessment');
+    }
+    BlazeLayout.render("mainLayout", { content: "SixHourTroponin" });
   }
 });

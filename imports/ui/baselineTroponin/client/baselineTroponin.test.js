@@ -27,7 +27,7 @@ describe('Baseline troponin', function() {
 
   it('shows pain duration question if trop < 5', function () {
     let data = {};
-    //troponin is less than 3 so should see chest pain question
+    //troponin is less than 5 so should see chest pain question
     Session.set('baselineTroponin', 3);
 
     withRenderedTemplate('BaselineTroponin', data, el => {
@@ -37,7 +37,7 @@ describe('Baseline troponin', function() {
 
   it('doesn\'t show pain duration question if trop > 5', function () {
     let data = {};
-    //troponin is less than 3 so should see chest pain question
+    //troponin is greater than 5 so should see chest pain question
     Session.set('baselineTroponin', 6);
 
     withRenderedTemplate('BaselineTroponin', data, el => {

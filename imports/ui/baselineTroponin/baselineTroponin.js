@@ -6,11 +6,13 @@ Template.BaselineTroponin.events({
   'submit #baseline-troponin-form'(event) {
     event.preventDefault();
 
-    const target = event.target;
-    const baselineTroponin = target.baselineTroponin.value;
-    const patientGender = target.gender.value
+    let painLessThanTwoHoursBoolean;
+    let target = event.target;
+    let baselineTroponin = target.baselineTroponin.value;
+    let patientGender = target.gender.value
+
     if (target.painDuration) {
-      const painLessThanTwoHoursBoolean = (target.painDuration.value == 'true');
+      painLessThanTwoHoursBoolean = (target.painDuration.value == 'true');
       Session.set('painDurationBoolean', painLessThanTwoHoursBoolean);
     }
     //can save these in database at later date

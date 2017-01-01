@@ -10,17 +10,16 @@
   <form id="baseline-troponin-form">
     <div class="form-input">
       <label for="baselineTroponin">What is the baseline troponin (ng/L)?
-        <input type="number" name="baselineTroponin">
+        <input type="number" name="baselineTroponin" required>
       </label>
     </div>
     <div class="form-input">
       <label for="gender">Patient gender
-        <input type="radio" name="gender" value="male"> Male
-        <input type="radio" name="gender" value="female"> Female
+        <input type="radio" name="gender" value="male" required> Male
+        <input type="radio" name="gender" value="female" required> Female
       </label>
     </div>
     <!-- reactively show this question if troponin is less than 5: -->
-    {{ log(tropLessThanFive) }}
     {{#if tropLessThanFive}}
       <div class="form-input">
         <label for="painDuration">Did the chest pain last for less than 2 hours?
