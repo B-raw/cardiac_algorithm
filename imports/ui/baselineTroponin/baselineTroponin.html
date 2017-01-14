@@ -1,33 +1,91 @@
 <template name="BaselineTroponin">
-  <h2>Non-diagnostic ECG</h2>
-  <h3>Initial Actions</h3>
-  <ul>
-    <li>Consider Aspirin 300mg</li>
-    <li>Sub-lingual nitrate or analgesia</li>
-    <li>CXR as indicated</li>
-  </ul>
-
-  <form id="baseline-troponin-form">
-    <div class="form-input">
-      <label for="baselineTroponin">What is the baseline troponin (ng/L)?
-        <input type="number" name="baselineTroponin" required>
-      </label>
-    </div>
-    <div class="form-input">
-      <label for="gender">Patient gender
-        <input type="radio" name="gender" value="male" required> Male
-        <input type="radio" name="gender" value="female" required> Female
-      </label>
-    </div>
-    <!-- reactively show this question if troponin is less than 5: -->
-    {{#if tropLessThanFive}}
-      <div class="form-input">
-        <label for="painDuration">Did the chest pain last for less than 2 hours?
-          <input type="radio" name="painDuration" value="true" required> Yes
-          <input type="radio" name="painDuration" value="false" required> No
-        </label>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 text-center">
+        <div class="panel panel-info in-column-buffer">
+          <div class="panel-heading text-center">
+            <h2>Non-diagnostic ECG</h2>
+          </div>
+          <div class="panel-body">
+            <ul>
+              <li class="row">
+                <p class="col-xs-10 col-md-11">
+                  Consider Aspirin 300mg
+                </p>
+                <input type="checkbox" class="col-xs-1"><br>
+              </li>
+              <li class="row">
+                <p class="col-xs-10 col-md-11">
+                  Sub-lingual nitrate or analgesia
+                </p>
+                <input type="checkbox" class="col-xs-1"><br>
+              </li>
+              <li class="row">
+                <p class="col-xs-10 col-md-11">
+                  CXR as indicated
+                </p>
+                <input type="checkbox" class="col-xs-1"><br>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
-    {{/if}}
-    <button type="submit">Submit</button>
-  </form>
+
+    </div>
+
+    <div class="row text-center">
+      <div class="col-sm-8 col-sm-offset-2">
+        <form id="baseline-troponin-form">
+          <div class="form-group">
+            <label for="baselineTroponin" class="form-questions">What is the baseline troponin (ng/L)?
+              <div class="input-buffer">
+                <input type="number" name="baselineTroponin" class="form-control" required>
+              </div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label for="gender" class="form-questions">
+              Patient gender
+              <a href="#patientGenderInfo" data-toggle="collapse">
+                <i class="fa fa-info-circle" aria-hidden="true"></i>
+              </a>
+            </label>
+            <div>
+              <label for="gender" class="radio-inline">
+                <input type="radio" name="gender" value="male" required> Male
+              </label>
+              <label for="gender" class="radio-inline">
+                <input type="radio" name="gender" value="female" required> Female
+              </label>
+
+              <p class="information-text collapse" id="patientGenderInfo">This influences the troponin cut-off values for decision making.</p>
+            </div>
+          </div>
+          <!-- reactively show this question if troponin is less than 5: -->
+          {{#if tropLessThanFive}}
+            <div class="form-group">
+              <label for="painDuration" class="form-questions">
+                Did the chest pain last for less than 2 hours?
+                <a href="#painDurationInfo" data-toggle="collapse">
+                  <i class="fa fa-info-circle" aria-hidden="true"></i>
+                </a>
+              </label>
+              <div>
+                <label for="painDuration" class="radio-inline">
+                  <input type="radio" name="painDuration" value="true" required> Yes
+                </label>
+                <label for="painDuration" class="radio-inline">
+                  <input type="radio" name="painDuration" value="false" required> No
+                </label>
+              </div>
+              <p class="information-text collapse" id="painDurationInfo">In all patients with chest pain for &lt; 2 hours, repeat the troponin at 3 hours.</p>
+            </div>
+          {{/if}}
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+
+
+  </div>
 </template>

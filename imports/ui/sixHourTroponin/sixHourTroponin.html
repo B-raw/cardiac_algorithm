@@ -1,12 +1,31 @@
 <template name="SixHourTroponin">
-  <h2>6 hour troponin</h2>
-  <p>Admission to hospital for 6 hour troponin</p>
-  <form id="six-hour-troponin-form">
-    <div class="form-input">
-      <label for="sixHourTroponin">What is the six hour troponin (ng/L)?
-        <input type="number" name="sixHourTroponin">
-      </label>
+  <div class="container">
+    <div class="row top-buffer">
+      <div class="col-sm-8 col-sm-offset-2">
+        <div class="panel panel-info">
+          <div class="panel-heading text-center">
+            <h2>6 hour troponin</h2>
+          </div>
+          <div class="panel-body text-center">
+            <p>Admission to hospital for 6 hour troponin</p>
+          </div>
+        </div>
+      </div>
     </div>
-    <button type="submit">Submit</button>
-  </form>
+
+    <div class="row text-center">
+      <div class="col-sm-8 col-sm-offset-2">
+        <form id="six-hour-troponin-form">
+          <div class="form-group">
+            <label for="sixHourTroponin" class="form-questions">What is the six hour troponin (ng/L)?
+              <div class="input-buffer">
+                <input type="number" name="sixHourTroponin" class="form-control" required>
+              </div>
+            </label>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </template>

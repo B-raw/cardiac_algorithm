@@ -27,6 +27,16 @@ Template.ThreeHourTroponin.events({
   }
 });
 
+Template.ThreeHourTroponin.helpers({
+  patientGender() {
+    return Session.get('patientGender');
+  },
+  troponinCutOff() {
+    return Session.equals('patientGender', "male") ? "34" : "16";
+
+  }
+})
+
 function myocardialInjuryOccurred(threeHourTroponin) {
   let patientGender = Session.get('patientGender')
   return ((threeHourTroponin > 16 && patientGender == 'female') ||

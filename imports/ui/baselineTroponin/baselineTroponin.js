@@ -2,6 +2,10 @@ import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import './baselineTroponin.html'
 
+Template.BaselineTroponin.onRendered(function() {
+  this.$(".painTooltip").tooltip();
+})
+
 Template.BaselineTroponin.events({
   'submit #baseline-troponin-form'(event) {
     event.preventDefault();
@@ -21,22 +25,15 @@ Template.BaselineTroponin.events({
       'patientGender': patientGender
     });
 
-    if (target.painDuration && myocardialInjuryRuledOut(baselineTroponin, painLessThanTwoHoursBoolean)) {
-      FlowRouter.go('miRuledOut');
-    }
-    else if (myocardialInjuryOccurred(baselineTroponin, patientGender)) {
-      FlowRouter.go('myocardialInjury');
-    }
-    else {
-      FlowRouter.go('threeHourTroponin');
-    }
+    routingLogic(target.painDuration, baselineTroponin, painLessThanTwoHoursBoolean, patientGender);
   },
   'blur input[name="baselineTroponin"]'(event) {
     const target = event.target;
     const baselineTroponin = target.value;
 
     Session.set('baselineTroponin', baselineTroponin);
-  }
+  },
+
 });
 
 Template.BaselineTroponin.helpers({
@@ -59,4 +56,16 @@ function myocardialInjuryOccurred(baselineTroponin, patientGender) {
 
 function myocardialInjuryRuledOut(baselineTroponin, painLessThanTwoHoursBoolean) {
   return baselineTroponin < 5 && !painLessThanTwoHoursBoolean
+}
+
+function routingLogic(painDuration, baselineTroponin, painLessThanTwoHoursBoolean, patientGender) {
+  if (painDuration && myocardialInjuryRuledOut(baselineTroponin, painLessThanTwoHoursBoolean)) {
+    FlowRouter.go('miRuledOut');
+  }
+  else if (myocardialInjuryOccurred(baselineTroponin, patientGender)) {
+    FlowRouter.go('myocardialInjury');
+  }
+  else {
+    FlowRouter.go('threeHourTroponin');
+  }
 }

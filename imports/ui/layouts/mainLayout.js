@@ -1,6 +1,8 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import './mainLayout.html';
+import './footer.html';
+
 
 import '../frontpage/frontpage.js';
 import '../initialAssessment/initialAssessment.js';

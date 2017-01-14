@@ -16,7 +16,7 @@ describe('Baseline troponin', function() {
 
 
     withRenderedTemplate('BaselineTroponin', data, el => {
-      expect($(el).context.innerText).to.include("Initial Actions")
+      expect($(el).context.innerText).to.include("Non-diagnostic ECG")
       expect($(el).context.innerHTML).to.include("Consider Aspirin 300mg")
       expect($(el).context.innerHTML).to.include("Sub-lingual nitrate or analgesia")
       expect($(el).context.innerHTML).to.include("CXR as indicated")

@@ -21,7 +21,7 @@ describe('User Flow', function () {
            .waitForExist("h1");
 
     browser.click("#begin-assessment")
-           .waitForExist("h2");
+           .waitForExist("div");
 
     var currentUrl = browser.url().value
     expect(currentUrl).to.equal("http://localhost:3000/initial-assessment")
@@ -30,22 +30,22 @@ describe('User Flow', function () {
     expect(headerText).to.equal("Initial Assessment & Management");
 
     var questionText = browser.getText("h2#select-ecg");
-    expect(questionText).to.equal("Please select what the ECG showed");
+    expect(questionText).to.equal("Please select what the ECG showed:");
   });
 
   describe('Front page', function() {
     it('click "ST-segment elevation", moves to emergency management page', function() {
       browser.url("localhost:3000/initial-assessment")
-             .waitForExist("h2");
+             .waitForExist("div");
 
       browser.click("#st-elevation")
-             .waitForExist("h2");
+             .waitForExist("div");
 
       var currentUrl = browser.url().value
       expect(currentUrl).to.equal("http://localhost:3000/st-elevation")
 
       var headerText = browser.getText("h2");
-      expect(headerText).to.equal("ST-segment elevation");
+      expect(headerText).to.equal("Management of ST-segment elevation");
 
       var bodyText = browser.getText("#st-treatment");
       expect(bodyText).to.contain("Aspirin");
@@ -53,10 +53,10 @@ describe('User Flow', function () {
 
     it('click "ST depression/T wave inversion", moves to emergency management page', function() {
       browser.url("localhost:3000/initial-assessment")
-             .waitForExist("h2");
+             .waitForExist("div");
 
       browser.click("#non-st-elevation")
-             .waitForExist("h2");
+             .waitForExist("div");
 
       var currentUrl = browser.url().value
       expect(currentUrl).to.equal("http://localhost:3000/non-st-elevation")
@@ -66,6 +66,20 @@ describe('User Flow', function () {
 
       var bodyText = browser.getText("#non-st-treatment");
       expect(bodyText).to.contain("Aspirin");
+    });
+
+    it('has an about page', function() {
+      browser.url("localhost:3000/")
+             .waitForExist("h1");
+
+      browser.click("#about")
+             .waitForExist("div");
+
+      var currentUrl = browser.url().value
+      expect(currentUrl).to.equal("http://localhost:3000/about")
+
+      var headerText = browser.getText("h2");
+      expect(headerText).to.equal("About");
     });
   });
 });

@@ -3,10 +3,10 @@ import { signUpAndSignIn, getBrowser, cleanDatabase, addPost, makeSaving, makeSa
 describe('Baseline troponin flow', function() {
   it('baseline troponin display', function() {
     browser.url("localhost:3000/initial-assessment")
-           .waitForExist("h2");
+           .waitForExist("div");
 
     browser.click("#non-diagnostic")
-           .waitForExist("h2");
+           .waitForExist("div");
 
     var currentUrl = browser.url().value
     expect(currentUrl).to.equal("http://localhost:3000/baseline-troponin")
@@ -20,7 +20,7 @@ describe('Baseline troponin flow', function() {
 
   it('(baseline troponin <5 AND > 2 hours pain) routes to MI ruled out', function() {
     browser.url("localhost:3000/baseline-troponin")
-           .waitForExist("h2");
+            .waitForExist("div");
 
     browser.setValue('[name=baselineTroponin]', "3")
            .click('input[value="male"]')
@@ -37,7 +37,7 @@ describe('Baseline troponin flow', function() {
 
   it('(female AND baseline troponin > 16) routes to MI', function() {
     browser.url("localhost:3000/baseline-troponin")
-           .waitForExist("h2");
+            .waitForExist("div");
 
     browser.setValue('[name=baselineTroponin]', "17")
            .click('input[value="female"]')
@@ -52,7 +52,7 @@ describe('Baseline troponin flow', function() {
 
   it('(male AND baseline troponin > 34) routes to MI', function() {
     browser.url("localhost:3000/baseline-troponin")
-           .waitForExist("h2");
+            .waitForExist("div");
 
     browser.setValue('[name=baselineTroponin]', "35")
            .click('input[value="male"]')
@@ -67,7 +67,7 @@ describe('Baseline troponin flow', function() {
 
   it('chest pain duration disappears if trop >= 5', function() {
     browser.url("localhost:3000/baseline-troponin")
-           .waitForExist("h2");
+            .waitForExist("div");
 
     // if <5, it should exist
     browser.setValue('[name=baselineTroponin]', "4")
@@ -90,7 +90,7 @@ describe('Baseline troponin flow', function() {
 
   it('(male AND baseline troponin is 30) routes to 3 hour trop', function() {
     browser.url("localhost:3000/baseline-troponin")
-           .waitForExist("h2");
+            .waitForExist("div");
 
     browser.setValue('[name=baselineTroponin]', "15")
            .click('input[value="male"]')
@@ -105,7 +105,7 @@ describe('Baseline troponin flow', function() {
 
   it('(female AND baseline troponin is 15) routes to 3 hour trop', function() {
     browser.url("localhost:3000/baseline-troponin")
-           .waitForExist("h2");
+            .waitForExist("div");
 
     browser.setValue('[name=baselineTroponin]', "15")
            .click('input[value="female"]')
@@ -120,7 +120,7 @@ describe('Baseline troponin flow', function() {
 
   it("does not go to another route, if trop & gender not filled in", function() {
     browser.url("localhost:3000/baseline-troponin")
-           .waitForExist("h2");
+            .waitForExist("div");
 
     browser.click('button[type=submit]');
 

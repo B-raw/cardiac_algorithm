@@ -1,9 +1,10 @@
 <template name="mainLayout">
-  <body class="main-body">
+  <div id="wrapper">
         <!-- {{> Header}}
         {{>globalNav}} -->
     <main class="main-layout">
       {{>Template.dynamic template=content}}
     </main>
-  </body>
+    {{>footer}}
+  </div>
 </template>
