@@ -18,7 +18,7 @@ describe('Six Hour Troponin', function() {
     var currentUrl = browser.url().value;
     expect(currentUrl).to.equal("http://localhost:3000/six-hour-mi-ruled-out");
 
-    var headerText = browser.getText("h2");
+    var headerText = browser.getText("h3");
     expect(headerText).to.equal("Myocardial infarction ruled out");
   });
 

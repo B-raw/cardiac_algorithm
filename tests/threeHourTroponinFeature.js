@@ -132,12 +132,12 @@ describe('Three Hour Troponin', function() {
            .click('button[type=submit]')
            .waitForExist("div");
 
-    var infoHeaderText = browser.getText(".information-box");
-    expect(infoHeaderText).to.contain("Information");
+    var infoHeaderText = browser.getText(".panel");
+    expect(infoHeaderText).to.contain("3 hour troponin");
 
     var informationText = "In female patients with a troponin ≥ 5 but ≤ 16, a repeat troponin should be taken at 3 hours from presentation"
 
-    var infoText = browser.getText(".information-box");
+    var infoText = browser.getText(".panel");
     expect(infoText).to.contain(informationText);
   });
 

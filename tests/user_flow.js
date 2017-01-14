@@ -81,5 +81,19 @@ describe('User Flow', function () {
       var headerText = browser.getText("h2");
       expect(headerText).to.equal("About");
     });
+
+    it('has a home page quick link @watch', function() {
+      browser.url("localhost:3000/about")
+             .waitForExist("h2");
+
+      browser.click("#home")
+             .waitForExist("div");
+
+      var currentUrl = browser.url().value
+      expect(currentUrl).to.equal("http://localhost:3000/")
+
+      var headerText = browser.getText("h1");
+      expect(headerText).to.equal("Rapid rule out of myocardial infarction");
+    });
   });
 });

@@ -16,13 +16,16 @@ body {
 }
 
 .container {
-  margin-top: 50px;
-  padding-bottom: 110px;
   box-sizing: border-box;
 }
 
 .top-buffer {
+  /*margin-top: 50px;*/
+}
+
+.bottom-buffer {
   margin-top: 50px;
+  padding-bottom: 110px;
 }
 
 .in-column-buffer {
@@ -38,6 +41,11 @@ body {
   margin-top: 80px;
 }
 
+/* TOP BAR */
+
+.back-button {
+  margin-top: 50px;
+}
 
 /* FORMS */
 
@@ -73,13 +81,6 @@ ul {
 }
 
 /* FOOTER */
-
-footer {
-  position: relative;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
 
 .footer {
   position: absolute;

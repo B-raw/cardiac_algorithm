@@ -99,7 +99,7 @@ describe('Baseline troponin flow', function() {
     var currentUrl = browser.url().value
     expect(currentUrl).to.equal("http://localhost:3000/3-hour-troponin")
 
-    var headerText = browser.getText("h2");
+    var headerText = browser.getText("h3");
     expect(headerText).to.contain("3 hour troponin");
   });
 
@@ -114,7 +114,7 @@ describe('Baseline troponin flow', function() {
     var currentUrl = browser.url().value
     expect(currentUrl).to.equal("http://localhost:3000/3-hour-troponin")
 
-    var headerText = browser.getText("h2");
+    var headerText = browser.getText("h3");
     expect(headerText).to.contain("3 hour troponin");
   });
 
