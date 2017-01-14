@@ -1,23 +1,18 @@
 * {
-    /*border: 1px solid red;*/
-}
-
-/* GENERAL */
-html, body {
-  font-size: 18px;
+  /*border: 1px solid red;*/
   margin:0;
   padding:0;
-	/*padding-bottom: 100px;*/
-  position: relative;
-  height: 100%;
-	min-height: 100%;
   box-sizing: border-box;
 }
 
-#wrapper {
-  min-height: 100%;
+/* GENERAL */
+html {
   position: relative;
-  border: 1px solid white;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 170px;
 }
 
 .container {
@@ -87,11 +82,11 @@ footer {
 }
 
 .footer {
-  position: relative;
-  clear: both;
+  position: absolute;
+  bottom: 0;
   left: 0;
   right: 0;
-  bottom: 0;
+  height: 160px;
   background-color: #d9edf7;
   color: #31708f;
   width: 100%;
