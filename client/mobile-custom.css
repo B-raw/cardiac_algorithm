@@ -42,6 +42,11 @@
 }
 
 @media screen and (min-width: 480px) and (max-width: 568px ) {
+  body {
+    /* Margin bottom by footer height */
+    margin-bottom: 260px;
+  }
+
   .jumbotron {
     margin: 20px 6px 0 6px;
   }

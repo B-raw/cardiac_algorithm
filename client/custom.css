@@ -19,8 +19,8 @@ body {
   box-sizing: border-box;
 }
 
-.top-buffer {
-  /*margin-top: 50px;*/
+.upper-buffer {
+  margin-top: 50px;
 }
 
 .bottom-buffer {
@@ -123,4 +123,13 @@ ul {
 
 .footer-logos {
   max-height: 60px;
+}
+
+/* ABOUT */
+
+.bhf-logo {
+  max-height: 140px;
+}
+
+twitterwidget {
 }
