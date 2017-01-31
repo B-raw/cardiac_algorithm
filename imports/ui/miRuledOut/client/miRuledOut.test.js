@@ -19,6 +19,7 @@ describe('MI ruled out', function() {
       expect($(el).context.innerHTML).to.include("A) Clear alternative diagnosis")
       expect($(el).context.innerHTML).to.include("B) Atypical chest pain or recent negative investigations")
       expect($(el).context.innerHTML).to.include("C) Typical cardiac pain on exertion with no previous investigations")
+      expect($(el).context.innerHTML).to.include("D) Known coronary heart disease")
     });
   });
 });

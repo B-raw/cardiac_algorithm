@@ -16,7 +16,7 @@ describe('Six hour troponin', function() {
 
 
     withRenderedTemplate('SixHourTroponin', data, el => {
-      expect($(el).context.innerHTML).to.include("6 hour troponin")
+      expect($(el).context.innerHTML).to.include("Repeat hs-cTnI measured 6 hours after presentation")
       expect($(el).context.innerHTML).to.include("What is the six hour troponin (ng/L)?")
     });
   });

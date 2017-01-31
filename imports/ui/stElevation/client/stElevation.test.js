@@ -21,7 +21,7 @@ describe('ST elevation', function() {
       expect($(el).context.innerHTML).to.include("Heparin 5000 units IV (if not anti-coagulated)")
       expect($(el).context.innerHTML).to.include("Sub-lingual nitrate or analgesia")
       expect($(el).context.innerHTML).to.include("Consider tirofiban IV bolus")
-      expect($(el).context.innerHTML).to.include("Admit and troponin at 6 hours")
+      expect($(el).context.innerHTML).to.include("Admit and repeat hs-cTnI at 6 hours")
 
     });
   });

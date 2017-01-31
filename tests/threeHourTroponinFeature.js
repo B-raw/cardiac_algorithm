@@ -92,7 +92,7 @@ describe('Three Hour Troponin', function() {
     expect(currentUrl).to.equal("http://localhost:3000/6-hour-troponin")
 
     var headerText = browser.getText("h2");
-    expect(headerText).to.contain("6 hour troponin");
+    expect(headerText).to.contain("Repeat hs-cTnI measured 6 hours after presentation");
   });
 
   it('(female AND trop change is >3 AND 3 hour troponin is 15) routes to 6 hour trop', function() {
@@ -112,7 +112,26 @@ describe('Three Hour Troponin', function() {
     expect(currentUrl).to.equal("http://localhost:3000/6-hour-troponin")
 
     var headerText = browser.getText("h2");
-    expect(headerText).to.contain("6 hour troponin");
+    expect(headerText).to.contain("Repeat hs-cTnI measured 6 hours after presentation");
+  });
+
+  it('does not move forward if 3 hour trop ignored', function() {
+    browser.url("localhost:3000/baseline-troponin")
+           .waitForExist("div");
+
+    browser.setValue('[name=baselineTroponin]', "6")
+           .click('input[value="female"]')
+           .click('button[type=submit]')
+           .waitForExist("div");
+
+    browser.click('button[type=submit]')
+           .waitForExist("div");
+
+    var currentUrl = browser.url().value
+    expect(currentUrl).to.equal("http://localhost:3000/3-hour-troponin")
+
+    var headerText = browser.getText("h3");
+    expect(headerText).to.contain("Repeat hs-cTnI measured 3 hours after presentation");
   });
 
   it("does not go to straight to three hour without a baseline trop", function() {
@@ -133,7 +152,7 @@ describe('Three Hour Troponin', function() {
            .waitForExist("div");
 
     var infoHeaderText = browser.getText(".panel");
-    expect(infoHeaderText).to.contain("3 hour troponin");
+    expect(infoHeaderText).to.contain("Repeat hs-cTnI measured 3 hours after presentation");
 
     var informationText = "In female patients with a troponin ≥ 5 but ≤ 16, a repeat troponin should be taken at 3 hours from presentation"
 

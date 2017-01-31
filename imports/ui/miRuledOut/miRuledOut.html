@@ -2,7 +2,7 @@
   <div class="container bottom-buffer">
     <div class="row top-buffer">
       <div class="col-sm-8 col-sm-offset-2">
-        <div class="panel panel-info">
+        <div class="panel panel-success">
           <div class="panel-heading text-center">
             <h2>Myocardial infarction ruled out</h2>
           </div>
@@ -12,13 +12,20 @@
                 <div class="diagnostic-situation">A) Clear alternative diagnosis</div>
                 <div class="treatment-advice">Treat as appropriate</div>
               </li>
+              <br>
               <li>
                 <div class="diagnostic-situation">B) Atypical chest pain or recent negative investigations</div>
                 <div class="treatment-advice">Reassure patient low cardiac risk, advice and GP follow up</div>
               </li>
+              <br>
               <li>
                 <div class="diagnostic-situation">C) Typical cardiac pain on exertion with no previous investigations</div>
-                <div class="treatment-advice">Reassure, aspirin 75mg od and GTN spray - consider referral to the RACPC</div>
+                <div class="treatment-advice">Reassure, aspirin 75mg od and GTN spray - consider referral to outpatient cardiology services</div>
+              </li>
+              <br>
+              <li>
+                <div class="diagnostic-situation">D) Known coronary heart disease</div>
+                <div class="treatment-advice">Optimise secondary prevention, {{referOrLetterToCardio}}</div>
               </li>
             </ul>
           </div>

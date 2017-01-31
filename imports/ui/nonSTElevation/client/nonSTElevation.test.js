@@ -21,7 +21,7 @@ describe('non ST elevation', function() {
       expect($(el).context.innerHTML).to.include("Consider Clopidogrel 300mg")
       expect($(el).context.innerHTML).to.include("Consider Fondaparinux 2.5mg SC (if not anti-coagulated)")
       expect($(el).context.innerHTML).to.include("CXR as indicated")
-      expect($(el).context.innerHTML).to.include("Admit and troponin at 6 hours")
+      expect($(el).context.innerHTML).to.include("Admit and repeat hs-cTnI at 6 hours")
     });
   });
 });

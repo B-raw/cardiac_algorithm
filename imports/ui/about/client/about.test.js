@@ -15,7 +15,7 @@ describe('About', function() {
     let data = {};
 
     withRenderedTemplate('About', data, el => {
-      expect($(el).context.innerText).to.include("About")
+      expect($(el).context.innerText).to.include("References")
     });
   });
 });

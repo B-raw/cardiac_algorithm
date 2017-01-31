@@ -10,15 +10,15 @@ describe('User Flow', function () {
 
   it('frontpage renders', function() {
     browser.url("localhost:3000/")
-           .waitForExist("h1", 2000);
-    var actualText = browser.getText("h1");
+           .waitForExist("div");
+    var actualText = browser.getText("p");
 
-    expect(actualText).to.equal("Rapid rule out of myocardial infarction");
+    expect(actualText).to.include("This protocol is for patients with chest pain and suspected acute myocardial infarction evaluated using the Abbott high-sensitivity cardiac troponin I assay");
   });
 
   it('click Begin, moves to initial assessment page', function() {
     browser.url("localhost:3000/")
-           .waitForExist("h1");
+           .waitForExist("div");
 
     browser.click("#begin-assessment")
            .waitForExist("div");
@@ -70,7 +70,7 @@ describe('User Flow', function () {
 
     it('has an about page', function() {
       browser.url("localhost:3000/")
-             .waitForExist("h1");
+             .waitForExist("div");
 
       browser.click("#about")
              .waitForExist("div");
@@ -79,10 +79,10 @@ describe('User Flow', function () {
       expect(currentUrl).to.equal("http://localhost:3000/about")
 
       var headerText = browser.getText("h2");
-      expect(headerText).to.equal("About");
+      expect(headerText).to.equal("References");
     });
 
-    it('has a home page quick link @watch', function() {
+    it('has a home page quick link', function() {
       browser.url("localhost:3000/about")
              .waitForExist("h2");
 
@@ -92,8 +92,50 @@ describe('User Flow', function () {
       var currentUrl = browser.url().value
       expect(currentUrl).to.equal("http://localhost:3000/")
 
-      var headerText = browser.getText("h1");
-      expect(headerText).to.equal("Rapid rule out of myocardial infarction");
+      var headerText = browser.getText("p");
+      expect(headerText).to.include("This protocol is for patients with chest pain and suspected acute myocardial infarction evaluated using the Abbott high-sensitivity cardiac troponin I assay");
+    });
+
+    describe('has two different landing pages for ‘Myocardial infarction ruled out’ @watch', function() {
+      it('says `discuss with cardio` if 3 hour trop required', function() {
+        browser.url("localhost:3000/baseline-troponin")
+               .waitForExist("div");
+
+        browser.setValue('[name=baselineTroponin]', "12")
+               .click('input[value="female"]')
+               .click('button[type=submit]')
+               .waitForExist("div");
+
+        browser.setValue('[name=threeHourTroponin]', "14")
+               .click('button[type=submit]');
+
+        var currentUrl = browser.url().value
+        expect(currentUrl).to.equal("http://localhost:3000/mi-ruled-out")
+
+        var headerText = browser.getText(".panel-body");
+        expect(headerText).to.include("discuss with cardiology");
+      });
+
+      it('says `letter to cardio` if trop < 5', function() {
+        browser.url("localhost:3000/baseline-troponin")
+               .waitForExist("div");
+
+        browser.setValue('[name=baselineTroponin]', "3")
+               .click('input[value="female"]')
+               .waitForExist('input[name="painDuration"]');
+        browser.click('input[value="false"]')
+               .click('button[type=submit]')
+               .waitForExist('div');
+
+
+
+        var currentUrl = browser.url().value
+        expect(currentUrl).to.equal("http://localhost:3000/mi-ruled-out")
+
+        var headerText = browser.getText(".panel-body");
+        expect(headerText).to.include("copy discharge letter to cardiology");
+      });
+
     });
   });
 });

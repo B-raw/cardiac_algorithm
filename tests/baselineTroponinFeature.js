@@ -15,7 +15,7 @@ describe('Baseline troponin flow', function() {
     expect(headerText).to.equal("Non-diagnostic ECG");
 
     var bodyText = browser.getText("form");
-    expect(bodyText).to.contain("What is the baseline troponin (ng/L)?");
+    expect(bodyText).to.contain("What is the hs-cTnI concentration at presentation (ng/L)?");
   });
 
   it('(baseline troponin <5 AND > 2 hours pain) routes to MI ruled out', function() {
@@ -100,7 +100,7 @@ describe('Baseline troponin flow', function() {
     expect(currentUrl).to.equal("http://localhost:3000/3-hour-troponin")
 
     var headerText = browser.getText("h3");
-    expect(headerText).to.contain("3 hour troponin");
+    expect(headerText).to.contain("Repeat hs-cTnI measured 3 hours after presentation");
   });
 
   it('(female AND baseline troponin is 15) routes to 3 hour trop', function() {
@@ -115,7 +115,7 @@ describe('Baseline troponin flow', function() {
     expect(currentUrl).to.equal("http://localhost:3000/3-hour-troponin")
 
     var headerText = browser.getText("h3");
-    expect(headerText).to.contain("3 hour troponin");
+    expect(headerText).to.contain("Repeat hs-cTnI measured 3 hours after presentation");
   });
 
   it("does not go to another route, if trop & gender not filled in", function() {

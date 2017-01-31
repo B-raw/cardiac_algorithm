@@ -2,12 +2,12 @@
   <div class="container bottom-buffer">
     <div class="row top-buffer">
       <div class="col-sm-8 col-sm-offset-2">
-        <div class="panel panel-info">
+        <div class="panel panel-warning">
           <div class="panel-heading text-center">
-            <h3>3 hour troponin</h3>
+            <h3>Repeat hs-cTnI measured 3 hours after presentation </h3>
           </div>
           <div class="panel-body">
-            <p>In {{ patientGender }} patients with a troponin &ge; 5 but &le; {{ troponinCutOff }}, a repeat troponin should be taken at 3 hours from presentation</p>
+            <p>In {{ patientGender }} patients with a troponin &ge; 5 but &le; {{ troponinCutOff }}, a repeat troponin should be taken at 3 hours from presentation.</p>
           </div>
         </div>
       </div>
@@ -17,7 +17,7 @@
       <div class="col-sm-8 col-sm-offset-2">
         <form id="three-hour-troponin-form">
           <div class="form-group">
-            <label for="threeHourTroponin" class="form-questions">What is the three hour troponin (ng/L)?
+            <label for="threeHourTroponin" class="form-questions">What is the hs-cTnI concentration at three hours (ng/L)?
               <div class="input-buffer">
                 <input type="number" name="threeHourTroponin" class="form-control" required>
               </div>
