@@ -91,7 +91,7 @@ describe('Three Hour Troponin', function() {
     var currentUrl = browser.url().value
     expect(currentUrl).to.equal("http://localhost:3000/6-hour-troponin")
 
-    var headerText = browser.getText("h2");
+    var headerText = browser.getText("h3");
     expect(headerText).to.contain("Repeat hs-cTnI measured 6 hours after presentation");
   });
 
@@ -111,7 +111,7 @@ describe('Three Hour Troponin', function() {
     var currentUrl = browser.url().value
     expect(currentUrl).to.equal("http://localhost:3000/6-hour-troponin")
 
-    var headerText = browser.getText("h2");
+    var headerText = browser.getText("h3");
     expect(headerText).to.contain("Repeat hs-cTnI measured 6 hours after presentation");
   });
 
