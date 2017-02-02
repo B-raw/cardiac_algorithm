@@ -1,4 +1,4 @@
-import { signUpAndSignIn, getBrowser, cleanDatabase, addPost, makeSaving, makeSavingBlank } from './testHelpers';
+import { signUpAndSignIn, getBrowser, cleanDatabase } from './testHelpers';
 
 describe('Baseline troponin flow', function() {
   it('baseline troponin display', function() {

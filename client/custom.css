@@ -47,6 +47,15 @@ body {
   margin-top: 20px;
 }
 
+.navbar-logo {
+  height: 40px;
+  margin-top: -13px;
+}
+
+/* FRONTPAGE */
+
+
+
 /* FORMS */
 
 .input-buffer {

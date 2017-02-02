@@ -30,13 +30,6 @@ export function cleanDatabase() {
   });
 }
 
-export function createCharacter(browserName, characterName) {
-  browserName.waitForExist(".newCharacterForm");
-  browserName.setValue( '[name="name"]', characterName )
-         .submitForm( '.newCharacterForm' );
-
-}
-
 export function getText(browserName, element, elementId) {
   var text = browserName.element(element);
   return text.getText(elementId);

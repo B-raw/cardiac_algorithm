@@ -1,4 +1,4 @@
-import { signUpAndSignIn, getBrowser, cleanDatabase, addPost, makeSaving, makeSavingBlank } from './testHelpers';
+import { signUpAndSignIn, getBrowser, cleanDatabase } from './testHelpers';
 
 let mainBrowser;
 
@@ -96,7 +96,7 @@ describe('User Flow', function () {
       expect(headerText).to.include("This protocol is for patients with chest pain and suspected acute myocardial infarction evaluated using the Abbott high-sensitivity cardiac troponin I assay");
     });
 
-    describe('has two different landing pages for ‘Myocardial infarction ruled out’ @watch', function() {
+    describe('has two different landing pages for ‘Myocardial infarction ruled out’', function() {
       it('says `discuss with cardio` if 3 hour trop required', function() {
         browser.url("localhost:3000/baseline-troponin")
                .waitForExist("div");
