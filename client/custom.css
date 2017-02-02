@@ -12,11 +12,15 @@ html {
 }
 body {
   /* Margin bottom by footer height */
-  margin-bottom: 170px;
+  margin-bottom: 15px;
 }
 
 .container {
   box-sizing: border-box;
+}
+
+.top-buffer {
+  margin-top: 15px;
 }
 
 .upper-buffer {
@@ -38,7 +42,7 @@ body {
 }
 
 .jumbotron {
-  margin-top: 0px;
+  margin-top: 30px;
 }
 
 /* TOP BAR */
@@ -54,7 +58,11 @@ body {
 
 /* FRONTPAGE */
 
-
+.block-information {
+  display: block;
+  font-size: 14px;
+  margin-top: 6px;
+}
 
 /* FORMS */
 

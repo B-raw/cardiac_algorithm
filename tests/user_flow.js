@@ -16,7 +16,7 @@ describe('User Flow', function () {
     expect(actualText).to.include("This protocol is for patients with chest pain and suspected acute myocardial infarction evaluated using the Abbott high-sensitivity cardiac troponin I assay");
   });
 
-  it('click Begin, moves to initial assessment page', function() {
+  it('click Test Patient, moves to initial assessment page @watch', function() {
     browser.url("localhost:3000/")
            .waitForExist("div");
 
