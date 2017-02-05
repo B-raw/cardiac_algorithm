@@ -6,15 +6,15 @@ import { resetDatabase } from 'meteor/xolvio:cleaner';
 import '../../test_helpers.js'
 import '../login.js'
 
-describe('Login', function() {
+describe('TermsConditions', function() {
   before(function() {
     resetDatabase();
   });
 
-  it('renders sign up page correctly', function () {
+  it('renders termsConditions page correctly', function () {
     const data = {};
 
-    withRenderedTemplate('Login', data, el => {
+    withRenderedTemplate('TermsConditions', data, el => {
       expect($(el).context.innerText).to.include("Log In");
       expect($(el).context.innerHTML).to.include("Email");
       expect($(el).context.innerHTML).to.include("Password");

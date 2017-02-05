@@ -2,12 +2,12 @@ import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base'
 import { Template } from 'meteor/templating';
 import { FlowRouter } from 'meteor/kadira:flow-router';
-import './privacyPolicy.html';
+import './termsConditions.html';
 
-Template.PrivacyPolicy.events({
+Template.TermsConditions.events({
 
 });
 
-Template.PrivacyPolicy.helpers({
+Template.TermsConditions.helpers({
 
 })

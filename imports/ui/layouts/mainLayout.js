@@ -20,3 +20,4 @@ import '../about/about.js';
 import '../signup/signup.js';
 import '../login/login.js';
 import '../privacyPolicy/privacyPolicy.js'
+import '../termsConditions/termsConditions.js'
