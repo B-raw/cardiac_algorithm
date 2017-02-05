@@ -135,7 +135,7 @@ describe('User registration', function () {
 
   });
 
-  it('can view Ts and Cs from signup screen @watch', function() {
+  it('can view Ts and Cs from signup screen', function() {
       browser.url("localhost:3000/signup")
              .waitForExist("#tsAndCsPage");
       browser.click("#tsAndCsPage")
