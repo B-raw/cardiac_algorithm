@@ -1,0 +1,90 @@
+<template name="NewPatient">
+  <div class="container bottom-buffer">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 text-center">
+        <div class="panel panel-info in-column-buffer">
+          <div class="panel-heading text-center">
+            <h2>New Patient Case</h2>
+          </div>
+          <div class="panel-body">
+            <p>Doloribus eveniet ut impedit. In enim impedit nihil vero sit. Aspernatur quasi ratione reiciendis doloribus modi a labore similique.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row text-center">
+      <div class="col-sm-8 col-sm-offset-2">
+        <form id="baseline-troponin-form">
+          <div class="form-group">
+            <label for="patientAge" class="form-questions">Patient age:
+              <div class="btn-toolbar upper-form-input-buffer hidden-xs" role="toolbar" aria-label="Toolbar with button groups">
+                <button type="button" class="btn btn-primary active">18-30</button>
+                <button type="button" class="btn btn-primary">31-40</button>
+                <button type="button" class="btn btn-primary">41-50</button>
+                <button type="button" class="btn btn-primary">51-60</button>
+                <button type="button" class="btn btn-primary">61-70</button>
+                <button type="button" class="btn btn-primary">71-80</button>
+                <button type="button" class="btn btn-primary">81-90</button>
+                <button type="button" class="btn btn-primary">90+</button>
+              </div>
+              <div class="select-age-box hidden-sm hidden-md hidden-lg hidden-xl" role="toolbar" aria-label="Toolbar with button groups">
+                <select class="form-control pad-select-left" id="exampleSelect1">
+                  <option>18-30</option>
+                  <option>31-40</option>
+                  <option>41-50</option>
+                  <option>51-60</option>
+                  <option>61-70</option>
+                  <option>71-80</option>
+                  <option>81-90</option>
+                  <option>90+</option>
+                </select>
+              </div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label for="symptomOnset" class="form-questions" id="symptomOnset">
+              When did the symptoms begin?
+              <a href="#patientGenderInfo" data-toggle="collapse">
+                <i class="fa fa-info-circle" aria-hidden="true"></i>
+              </a>
+            </label>
+            <div>
+              <label for="gender" class="radio-inline">
+                <input type="radio" name="gender" value="male" required> Male
+              </label>
+              <label for="gender" class="radio-inline">
+                <input type="radio" name="gender" value="female" required> Female
+              </label>
+
+              <p class="information-text collapse" id="patientGenderInfo">This algorithm is optimised for the Abbott high-sensitivity cardiac troponin I assay with sex-specific thresholds (16 ng/L for women, 34 ng/L for men).</p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="painDuration" class="form-questions">
+              Was the onset of symptoms within two hours of presentation?
+              <a href="#painDurationInfo" data-toggle="collapse">
+                <i class="fa fa-info-circle" aria-hidden="true"></i>
+              </a>
+            </label>
+            <div>
+              <label for="painDuration" class="radio-inline">
+                <input type="radio" name="painDuration" value="true" required> Yes
+              </label>
+              <label for="painDuration" class="radio-inline">
+                <input type="radio" name="painDuration" value="false" required> No
+              </label>
+            </div>
+            <p class="information-text collapse" id="painDurationInfo">These patients should have a repeat hs-cTnI measured 3 hours after presentation.</p>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+
+
+  </div>
+</template>

@@ -75,6 +75,19 @@ body {
   width: 80px;
 }
 
+.upper-form-input-buffer {
+  margin-top: 10px;
+}
+
+.select-age-box {
+  width: 90px;
+  margin: 10px auto 0 auto;
+}
+
+.pad-select-left {
+  padding-left: 17px;
+}
+
 .form-questions {
   color: #09A1E1;
   font-weight: normal;

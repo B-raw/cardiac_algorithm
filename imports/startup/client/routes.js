@@ -121,3 +121,10 @@ FlowRouter.route('/6-hour-troponin', {
     BlazeLayout.render("mainLayout", { content: "SixHourTroponin" });
   }
 });
+
+FlowRouter.route('/new-patient', {
+  name: 'newPatient',
+  action() {
+    BlazeLayout.render("mainLayout", { content: "NewPatient" });
+  }
+});

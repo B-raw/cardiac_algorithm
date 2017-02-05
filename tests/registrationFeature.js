@@ -1,7 +1,5 @@
 import { signUpSignIn, signIn, getBrowser, cleanDatabase, addPost } from './testHelpers';
 
-let mainBrowser;
-
 describe('User registration', function () {
 
   beforeEach(function () {

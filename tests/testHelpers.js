@@ -1,7 +1,7 @@
 export function signUp(browserName, firstName, lastName, email, password){
   browserName.url("localhost:3000")
-             .waitForExist("#signup-required");
-  browserName.click("#signup-required")
+             .waitForExist("#signup");
+  browserName.click("#signup")
              .setValue('#firstName', firstName)
              .setValue('#lastName', lastName)
              .setValue('#email', email)
