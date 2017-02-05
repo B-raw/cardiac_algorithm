@@ -1,0 +1,91 @@
+<template name="Signup">
+    <div class="row">
+
+      <div class="col-sm-5 col-sm-offset-1 hidden-xs text-center high-steacs-logo-spacing">
+        <img src="/high-STEACS-logo.png" class="img-responsive sign-up-logo" alt="high-STEACS logo">
+      </div>
+
+      <div class="container bottom-buffer">
+      <div class="col-sm-6 text-center">
+        <h3> Sign Up </h3>
+        <form id="signup-form" class="register">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h4>About You</h4>
+            </div>
+            <div id="errors">
+
+            </div>
+            <div class="panel-body signup-panel">
+              <div class="form-group">
+                <label for="name">First Name</label>
+                <input type="name" class="form-control" id="firstName" placeholder="First Name" required/>
+              </div>
+              <div class="form-group">
+                <label for="name">Last Name</label>
+                <input type="name" class="form-control" id="lastName" placeholder="Last Name" required/>
+              </div>
+              <div class="form-group">
+                <label for="name">Hospital or Organisation Name</label>
+                <input type="text" class="form-control" id="organisation" placeholder="" />
+              </div>
+              <div class="form-group">
+                <label for="profession">Profession / Specialty</label>
+                <input type="text" class="form-control" id="profession" placeholder="eg Research Fellow Cardiology" />
+              </div>
+            </div>
+          </div>
+
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h4><i class="fa fa-lock space-fa" aria-hidden="true"></i>Your Secure High-STEACS Account</h4>
+            </div>
+            <div class="panel-body signup-panel">
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" />
+                <small id="emailHelp" class="form-text text-muted">Please consider giving your academic email address for data validation.</small><br>
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password" />
+              </div>
+            </div>
+          </div>
+
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h4>Submit Registration</h4>
+            </div>
+            <div class="panel-body signup-panel">
+              <div class="form-check">
+                <label class="form-check-label">
+                  <div class="row signup-panel">
+                    <div class="col-xs-1">
+                      <input type="checkbox" class="form-check-input" id="tsAndCs">
+                    </div>
+                    <div class="col-xs-10 text-left">
+                      You agree to the High-STEACS
+                      <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>,
+                      and the use of cookies as described therein, and also consent to the collection, storage and processing of your information in the United Kingdom where your personal data will be subject to United Kingdom law and where the level of data protection may be different than your country.
+                    </div>
+                  </div>
+                </label>
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-lg" id="login-submit">Submit</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- <div class="col-md-5 col-sm-offset-1 hidden-xl hidden-lg hidden-md bottom-sign-up-logo-spacing">
+        <img src="/high-STEACS-logo.png" class="img-responsive sign-up-logo" alt="high-STEACS logo">
+      </div> -->
+
+    </div>
+  </div>
+</template>

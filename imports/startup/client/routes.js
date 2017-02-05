@@ -18,6 +18,13 @@ FlowRouter.route('/about', {
   }
 });
 
+FlowRouter.route('/signup', {
+  name: 'signup',
+  action() {
+    BlazeLayout.render("mainLayout", { content: "Signup" });
+  }
+});
+
 FlowRouter.route('/initial-assessment', {
   name: 'initial-assessment',
   action() {

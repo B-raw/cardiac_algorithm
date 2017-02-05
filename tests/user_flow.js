@@ -13,10 +13,10 @@ describe('User Flow', function () {
            .waitForExist("div");
     var actualText = browser.getText("p");
 
-    expect(actualText).to.include("This protocol is for patients with chest pain and suspected acute myocardial infarction evaluated using the Abbott high-sensitivity cardiac troponin I assay");
+    expect(actualText).to.include("This pathway is for patients with chest pain and suspected acute myocardial infarction evaluated using the Abbott high-sensitivity cardiac troponin I assay");
   });
 
-  it('click Test Patient, moves to initial assessment page @watch', function() {
+  it('click Test Patient, moves to initial assessment page', function() {
     browser.url("localhost:3000/")
            .waitForExist("div");
 
@@ -93,7 +93,7 @@ describe('User Flow', function () {
       expect(currentUrl).to.equal("http://localhost:3000/")
 
       var headerText = browser.getText("p");
-      expect(headerText).to.include("This protocol is for patients with chest pain and suspected acute myocardial infarction evaluated using the Abbott high-sensitivity cardiac troponin I assay");
+      expect(headerText).to.include("This pathway is for patients with chest pain and suspected acute myocardial infarction evaluated using the Abbott high-sensitivity cardiac troponin I assay");
     });
 
     describe('has two different landing pages for ‘Myocardial infarction ruled out’', function() {

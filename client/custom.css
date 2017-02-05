@@ -45,6 +45,10 @@ body {
   margin-top: 30px;
 }
 
+.space-fa {
+  margin-right: 8px;
+}
+
 /* TOP BAR */
 
 .back-button {
@@ -148,5 +152,22 @@ ul {
   max-height: 140px;
 }
 
-twitterwidget {
+/* Sign up */
+
+.signup-panel {
+  padding: 10px 12px 0 12px;
+}
+
+.sign-up-logo {
+  max-height: 440px;
+}
+
+.high-steacs-logo-spacing {
+  margin-top: 150px;
+}
+
+#errors {
+  width: 250px;
+  margin: 8px auto 0 auto;
+  padding: 3px;
 }

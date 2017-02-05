@@ -8,13 +8,17 @@
         <img class="img-responsive" src="/High-STEACS-acc-grey.png" />
         <h4>High-sensitivity Troponin in the Evaluation of Patients with Acute Coronary Syndromes</h4>
       </div>
-      <p class="in-column-buffer">This protocol is for patients with chest pain and suspected acute myocardial infarction evaluated using the Abbott high-sensitivity cardiac troponin I assay</p>
+      <p class="in-column-buffer">This pathway is for patients with chest pain and suspected acute myocardial infarction evaluated using the Abbott high-sensitivity cardiac troponin I assay</p>
 
 
       <div class="row">
         <div class="col-sm-4 col-sm-offset-2 text-center in-column-buffer">
-          <a href="/initial-assessment" class="btn btn-info btn-lg btn-display-block-sm">New Patient</a>
-          <a href="#" class="information-text block-information">Registration Required</a>
+          {{#if currentUser}}
+            <a href="/initial-assessment" class="btn btn-info btn-lg btn-display-block-sm" id="new-patient2">New Patient</a>
+          {{else}}
+            <a href="/signup" class="btn btn-info btn-lg btn-display-block-sm" id="new-patient">New Patient</a>
+            <a href="/signup" class="information-text block-information" id="signup-required">Sign Up Required</a>
+          {{/if}}
         </div>
         <div class="col-sm-4 text-center in-column-buffer">
           <a href="/initial-assessment" class="btn btn-info btn-lg btn-display-block-sm" id="begin-assessment">Test Patient</a>

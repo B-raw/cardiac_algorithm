@@ -17,3 +17,4 @@ import '../sixHourTroponin/sixHourTroponin.js';
 import '../myocardialInjury/sixHourInjury/sixHourMyocardialInjury.js';
 import '../miRuledOut/sixHourMiRuledOut/sixHourMiRuledOut.js';
 import '../about/about.js';
+import '../signup/signup.js';
