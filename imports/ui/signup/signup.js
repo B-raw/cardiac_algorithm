@@ -28,19 +28,19 @@ Template.Signup.events({
       }
 
       createNewUser(options);
-
-      FlowRouter.go('home')
     }
 });
 
 function createNewUser(options) {
   Accounts.createUser( options , function(err){
     if( err ) {
-      console.log(err);
+      console.log(error.reason);
       $('div#errors').html('<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>')
-                     .html( err.message )
+                     .html( err.reason )
                      .addClass("alert alert-danger")
                      .attr('role', 'alert');
+    } else {
+      FlowRouter.go('home')
     }
   });
 }

@@ -27,11 +27,11 @@
               </div>
               <div class="form-group">
                 <label for="name">Hospital or Organisation Name</label>
-                <input type="text" class="form-control" id="organisation" placeholder="" />
+                <input type="text" class="form-control" id="organisation" placeholder="" required/>
               </div>
               <div class="form-group">
                 <label for="profession">Profession / Specialty</label>
-                <input type="text" class="form-control" id="profession" placeholder="eg Research Fellow Cardiology" />
+                <input type="text" class="form-control" id="profession" placeholder="eg Research Fellow Cardiology" required/>
               </div>
             </div>
           </div>
@@ -43,14 +43,14 @@
             <div class="panel-body signup-panel">
               <div class="form-group">
                 <label for="email">Email Address</label>
-                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" />
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" required/>
                 <small id="emailHelp" class="form-text text-muted">Please consider giving your academic email address for data validation.</small><br>
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
               </div>
 
               <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" placeholder="Password" />
+                <input type="password" class="form-control" id="password" placeholder="Password" required/>
               </div>
             </div>
           </div>
@@ -64,11 +64,11 @@
                 <label class="form-check-label">
                   <div class="row signup-panel">
                     <div class="col-xs-1">
-                      <input type="checkbox" class="form-check-input" id="tsAndCs">
+                      <input type="checkbox" class="form-check-input" id="tsAndCs" required>
                     </div>
                     <div class="col-xs-10 text-left">
                       You agree to the High-STEACS
-                      <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>,
+                      <a href="/terms-conditions" id="tsAndCsPage">Terms of Use</a> and <a href="/privacy-policy" id="privacyPolicy">Privacy Policy</a>,
                       and the use of cookies as described therein, and also consent to the collection, storage and processing of your information in the United Kingdom where your personal data will be subject to United Kingdom law and where the level of data protection may be different than your country.
                     </div>
                   </div>

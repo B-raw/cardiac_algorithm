@@ -171,3 +171,17 @@ ul {
   margin: 8px auto 0 auto;
   padding: 3px;
 }
+
+/* Login */
+
+.login-panel {
+  /*margin-top: 70px;*/
+}
+
+.login-logo-spacing {
+  margin-top: 70px;
+}
+
+.insert-space-big-screen {
+  margin-top: 50px;
+}

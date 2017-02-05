@@ -25,6 +25,27 @@ FlowRouter.route('/signup', {
   }
 });
 
+FlowRouter.route('/login', {
+  name: 'login',
+  action() {
+    BlazeLayout.render("mainLayout", { content: "Login" });
+  }
+});
+
+FlowRouter.route('/terms-conditions', {
+  name: 'terms-conditions',
+  action() {
+    BlazeLayout.render("mainLayout", { content: "TermsConditions" });
+  }
+});
+
+FlowRouter.route('/privacy-policy', {
+  name: 'privacy-policy',
+  action() {
+    BlazeLayout.render("mainLayout", { content: "PrivacyPolicy" });
+  }
+});
+
 FlowRouter.route('/initial-assessment', {
   name: 'initial-assessment',
   action() {
