@@ -15,3 +15,14 @@ Template.Navbar.events({
     FlowRouter.go('home');
     }
 })
+
+Template.Navbar.helpers({
+    'isActive': function (itemName) {
+      console.log(FlowRouter.getRouteName())
+      if (FlowRouter.getRouteName() == itemName) {
+          console.log(itemName + ' > Active');
+          return 'active';
+      }
+    }
+
+});
