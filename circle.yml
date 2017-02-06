@@ -55,8 +55,8 @@ test:
   override:
     - node ./.scripts/test.js:
         parallel: true
-        files:
-          - tests/specifications/*/*.feature
+        # files:
+        #   - tests/specifications/*/*.feature
         environment:
           MONGO_URL: "mongodb://localhost:27017/meteor"
           CUCUMBER_JSON_OUTPUT: "$CIRCLE_TEST_REPORTS/cucumber/chrome.cucumber"
