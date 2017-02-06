@@ -17,11 +17,15 @@ describe('User registration', function () {
     var currentUrl = browser.url().value
     expect(currentUrl).to.equal("http://localhost:3000/new-patient")
 
-    var actualText = browser.getText("div");
-    expect(actualText).to.include("New Patient");
-    expect(actualText).to.include("Age");
-    expect(actualText).to.include("When did the symptoms begin?");
-    expect(actualText).to.include("History of ischaemic heart disease?");
+    browser.waitForExist(".panel");
+
+    var headerText = browser.getText(".panel");
+    expect(headerText).to.include("New Patient Case");
+
+    var actualText = browser.getText("form");
+    expect(actualText).to.include("Patient age:");
+    expect(actualText).to.include("When did the symptoms begin (from presentation)?");
+    expect(actualText).to.include("Past medical history of ischaemic heart disease?");
 
     browser.click('input[value="41-50"]')
            .click('input[value="male"]')
