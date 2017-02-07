@@ -21,4 +21,21 @@ describe('Case Investigations', function() {
   //     expect($(el).context.innerHTML).to.include("Past medical history of ischaemic heart disease?")
   //   });
   // });
+
+  it('shows pain duration question if trop < 5', function () {
+    let data = {};
+    //troponin is less than 5 so should see chest pain question
+    Session.set('baselineTroponinDone', true);
+
+    withRenderedTemplate('BaselineTroponin', data, el => {
+      expect($(el).context.innerHTML).to.include("What was the hs-cTnI concentration at presentation (ng/L)?")
+    });
+
+    Session.set('baselineTroponinDone', false);
+
+    withRenderedTemplate('BaselineTroponin', data, el => {
+      expect($(el).context.innerHTML).to.not.include("What was the hs-cTnI concentration at presentation (ng/L)?")
+    });
+  });
+
 });

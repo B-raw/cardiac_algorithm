@@ -37,5 +37,32 @@ Template.CaseInvestigations.events({
       }
     });
 
-  }
+  },
+  'click #baselineTropDone'(event) {
+    isChecked = event.target.checked
+
+    Session.set('showBaselineTropQuestion', isChecked)
+  },
+  'click #threeHourTropDone'(event) {
+    isChecked = event.target.checked
+
+    Session.set('showThreeHourTropQuestion', isChecked)
+  },
+  'click #sixHourTropDone'(event) {
+    isChecked = event.target.checked
+
+    Session.set('showSixHourTropQuestion', isChecked)
+  },
+});
+
+Template.CaseInvestigations.helpers({
+  showBaselineTropQuestion() {
+    return Session.get('showBaselineTropQuestion')
+  },
+  showThreeHourTropQuestion() {
+    return Session.get('showThreeHourTropQuestion')
+  },
+  showSixHourTropQuestion() {
+    return Session.get('showSixHourTropQuestion')
+  },
 });
