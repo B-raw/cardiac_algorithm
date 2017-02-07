@@ -122,10 +122,17 @@ FlowRouter.route('/6-hour-troponin', {
   }
 });
 
-FlowRouter.route('/new-patient', {
-  name: 'newPatient',
+FlowRouter.route('/cases/new', {
+  name: 'newCase',
   action() {
-    BlazeLayout.render("mainLayout", { content: "NewPatient" });
+    BlazeLayout.render("mainLayout", { content: "NewCase" });
+  }
+});
+
+FlowRouter.route('/cases/new/investigations', {
+  name: 'caseInvestigations',
+  action() {
+    BlazeLayout.render("mainLayout", { content: "CaseInvestigations" });
   }
 });
 

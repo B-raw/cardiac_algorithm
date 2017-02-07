@@ -1,9 +1,9 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { insertCase } from '../../api/researchData/methods.js';
-import './newPatient.html'
+import './caseInvestigations.html'
 
-Template.NewPatient.events({
+Template.CaseInvestigations.events({
   'submit form'(event) {
     event.preventDefault();
 
@@ -32,6 +32,8 @@ Template.NewPatient.events({
       if (error) {
         console.log(error)
         alert(error.reason)
+      } else {
+        Flowrouter.go('/cases')
       }
     });
 

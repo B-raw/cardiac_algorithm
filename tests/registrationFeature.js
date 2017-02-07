@@ -19,28 +19,28 @@ describe('User registration', function () {
     expect(headerText).to.include("Sign Up");
   });
 
-  it('shows sign up page when click on New Patient when logged out', function() {
+  it('shows login page when click on New Patient when logged out', function() {
     browser.url("localhost:3000/")
            .waitForExist("div");
     browser.click("#new-patient")
            .waitForExist("div");
 
     var currentUrl = browser.url().value
-    expect(currentUrl).to.equal("http://localhost:3000/signup")
+    expect(currentUrl).to.equal("http://localhost:3000/login")
 
 
-    var headerText = browser.getText("h3");
-    expect(headerText).to.include("Sign Up");
+    var headerText = browser.getText("div");
+    expect(headerText).to.include("Log In To Your Secure High-STEACS Account");
   });
 
-  it('shows sign up page when click on "Log In Required" when logged out', function() {
+  it('shows login page when click on "Log In Required" when logged out', function() {
     browser.url("localhost:3000/")
            .waitForExist("div");
     browser.click("#signup-required")
            .waitForExist("div");
 
     var currentUrl = browser.url().value
-    expect(currentUrl).to.equal("http://localhost:3000/signup")
+    expect(currentUrl).to.equal("http://localhost:3000/login")
   });
 
   it('shows sign up page when click sign up', function() {
@@ -86,7 +86,7 @@ describe('User registration', function () {
   })
 
   describe('when logged in', function() {
-    it('shows algorithm when click on "New Patient"', function() {
+    it('shows data collection when click on "New Patient"', function() {
       signUpSignIn(browser, "Bruce", "Wayne", "batman@hotmail.com", "123321")
 
       browser.waitForExist('#new-patient-loggedin')
@@ -94,7 +94,7 @@ describe('User registration', function () {
              .waitForExist("div");
 
       var currentUrl = browser.url().value
-      expect(currentUrl).to.equal("http://localhost:3000/initial-assessment")
+      expect(currentUrl).to.equal("http://localhost:3000/cases/new")
     });
   });
 

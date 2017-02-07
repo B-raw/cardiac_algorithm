@@ -15,9 +15,7 @@ describe('PrivacyPolicy', function() {
     const data = {};
 
     withRenderedTemplate('PrivacyPolicy', data, el => {
-      expect($(el).context.innerText).to.include("Log In");
-      expect($(el).context.innerHTML).to.include("Email");
-      expect($(el).context.innerHTML).to.include("Password");
+      expect($(el).context.innerText).to.include("Privacy Policy");
     });
   });
 

@@ -4,7 +4,7 @@ import { be } from 'meteor/practicalmeteor:chai';
 import { assert } from 'meteor/practicalmeteor:chai';
 import { resetDatabase } from 'meteor/xolvio:cleaner';
 import '../../test_helpers.js'
-import '../login.js'
+import '../termsConditions.js'
 
 describe('TermsConditions', function() {
   before(function() {
@@ -15,9 +15,7 @@ describe('TermsConditions', function() {
     const data = {};
 
     withRenderedTemplate('TermsConditions', data, el => {
-      expect($(el).context.innerText).to.include("Log In");
-      expect($(el).context.innerHTML).to.include("Email");
-      expect($(el).context.innerHTML).to.include("Password");
+      expect($(el).context.innerText).to.include("Terms and Conditions");
     });
   });
 

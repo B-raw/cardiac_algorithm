@@ -13,8 +13,7 @@ import { insertCase } from '../methods.js';
 
 describe('Cases', function () {
   describe('methods', function() {
-    let userId;
-    let newCase;
+    let userId, newCase, user;
 
     beforeEach(function() {
       //clear database
@@ -25,7 +24,7 @@ describe('Cases', function () {
         password: "123321",
       });
 
-      const user = Factory.create('user');
+      user = Factory.create('user');
 
       newCase = {
         patientAge: "31-40",

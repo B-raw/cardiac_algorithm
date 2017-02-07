@@ -15,7 +15,7 @@ describe('User registration', function () {
            .waitForExist("div");
 
     var currentUrl = browser.url().value
-    expect(currentUrl).to.equal("http://localhost:3000/new-patient")
+    expect(currentUrl).to.equal("http://localhost:3000/cases/new")
 
     browser.waitForExist(".panel");
 

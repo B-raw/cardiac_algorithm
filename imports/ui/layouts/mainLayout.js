@@ -21,5 +21,6 @@ import '../signup/signup.js';
 import '../login/login.js';
 import '../privacyPolicy/privacyPolicy.js'
 import '../termsConditions/termsConditions.js'
-import '../newPatient/newPatient.js';
+import '../newCase/newCase.js';
 import '../cases/cases.js';
+import '../caseInvestigations/caseInvestigations.js';

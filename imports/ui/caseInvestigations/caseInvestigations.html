@@ -1,0 +1,66 @@
+<template name="CaseInvestigations">
+  <div class="container bottom-buffer">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 text-center">
+        <div class="panel panel-info in-column-buffer">
+          <div class="panel-heading text-center">
+            <h2>New Patient Case</h2>
+          </div>
+          <div class="panel-body">
+            <p>Doloribus eveniet ut impedit. In enim impedit nihil vero sit. Aspernatur quasi ratione reiciendis doloribus modi a labore similique.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row text-center">
+      <div class="col-sm-8 col-sm-offset-2">
+        <form id="baseline-troponin-form">
+
+          <!-- ECG Ischaemia -->
+          <div class="form-group">
+            <label for="patientAge" class="form-questions">ECG Ischaemia?
+              <div class="btn-toolbar upper-form-input-buffer hidden-xs" role="toolbar" aria-label="Toolbar with button groups">
+                <button type="button" class="btn btn-primary btn-success" value="nonDiagnostic">Non-diagnostic</button>
+                <button type="button" class="btn btn-primary btn-danger" value="STdepression">ST depression or T wave inversion</button>
+                <button type="button" class="btn btn-primary btn-danger" value="STElevation">ST-segment elevation</button>
+              </div>
+            </label>
+          </div>
+
+          <!-- Baseline Trop -->
+          <div class="form-group">
+            <label for="baselineTroponin" class="form-questions">What was the hs-cTnI concentration at presentation (ng/L)?
+              <div class="input-buffer">
+                <input type="number" name="baselineTroponin" class="form-control" min="0" max="50000" required>
+              </div>
+            </label>
+          </div>
+
+          <!-- Three hour Trop -->
+          <div class="form-group">
+            <label for="threeHourTroponin" class="form-questions">What was the hs-cTnI concentration at three hours (ng/L)?
+              <div class="input-buffer">
+                <input type="number" name="threeHourTroponin" class="form-control" required>
+              </div>
+            </label>
+          </div>
+
+          <!-- Six hour Trop -->
+          <div class="form-group">
+            <label for="sixHourTroponin" class="form-questions">What was the hs-cTnI concentration at six hours (ng/L)?
+              <div class="input-buffer">
+                <input type="number" name="sixHourTroponin" class="form-control" required>
+              </div>
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+
+
+  </div>
+</template>

@@ -1,9 +1,31 @@
 <template name="Cases">
 
-  <ul>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Age</th>
+      <th>Gender</th>
+      <th>Duration of symptoms</th>
+      <th>History of Ischaemiac Heart Disease?</th>
+      <th>ECG ischaemia?</th>
+      <th>Presentation hs-cTnI</th>
+      <th>hs-cTnI at 3 hours</th>
+      <th>hs-cTnI at 6 hours</th>
+    </tr>
+  </thead>
+  <tbody>
     {{#each cases}}
-      <li>{{ patientAge }} {{ patientGender }} {{ painDuration }} {{ historyIschaemia }}</li>
+      <tr>
+        <td>{{ patientAge }}</td>
+        <td>{{ patientGender }}</td>
+        <td>{{ painDuration }}</td>
+        <td>{{ historyIschaemia }}</td>
+      </tr>
     {{/each}}
-  </ul>
+  </tbody>
+</table>
+
+
+
 
 </template>

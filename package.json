@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "start": "meteor run --port 3000",
-    "test": "chimp --ddp=http://localhost:3000 --mocha --browser=chrome --path=tests || exit 0",
+    "test": "chimp --ddp=http://localhost:3000 --mocha --path=tests || exit 0",
     "test-watch": "chimp --ddp=http://localhost:3000 --mocha --watch --path=tests || exit 0",
     "practical": "meteor test --port=8080 --driver-package=practicalmeteor:mocha"
   },
