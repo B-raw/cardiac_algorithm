@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
+import { insertCase } from '../../api/researchData/methods.js';
 import './newPatient.html'
 
 Template.NewPatient.events({
@@ -7,15 +8,17 @@ Template.NewPatient.events({
     event.preventDefault();
 
     let target = event.target;
-    let patientAge = target.patientAge.value
-    let patientGender = target.gender.value
-    let painDuration = target.painDuration.value
-    let historyIschaemia = target.historyIschaemia.value
+    let patientAge = target.patientAge.value;
+    let patientGender = target.gender.value;
+    let painDuration = target.painDuration.value;
+    let historyIschaemia = target.historyIschaemia.value;
 
-    console.log(patientAge)
-    console.log(patientGender)
-    console.log(painDuration)
-    console.log(historyIschaemia)
+    let newCase = {
+      patientAge,
+      patientGender,
+      painDuration,
+      historyIschaemia
+    }
 
     //can save these in database at later date
     Session.set({
@@ -25,6 +28,12 @@ Template.NewPatient.events({
       'historyIschaemia': historyIschaemia
     });
 
-    // routingLogic(target.painDuration, baselineTroponin, painLessThanTwoHoursBoolean, patientGender);
+    insertCase.call(newCase, (error) => {
+      if (error) {
+        console.log(error)
+        alert(error.reason)
+      }
+    });
+
   }
 });

@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
-import './accounts-server-onCreateUser.js'
-import '../imports/api/researchData/researchData.js'
+import './accounts-server-onCreateUser.js';
+import '../imports/startup/server';
 
 
 Meteor.startup(() => {

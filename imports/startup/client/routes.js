@@ -128,3 +128,10 @@ FlowRouter.route('/new-patient', {
     BlazeLayout.render("mainLayout", { content: "NewPatient" });
   }
 });
+
+FlowRouter.route('/cases', {
+  name: 'cases',
+  action() {
+    BlazeLayout.render("mainLayout", { content: "Cases" });
+  }
+});

@@ -22,3 +22,4 @@ import '../login/login.js';
 import '../privacyPolicy/privacyPolicy.js'
 import '../termsConditions/termsConditions.js'
 import '../newPatient/newPatient.js';
+import '../cases/cases.js';
