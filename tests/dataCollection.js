@@ -37,9 +37,11 @@ describe('User registration', function () {
     var actualText = browser.getText("div");
     expect(actualText).to.include("ECG Ischaemia?");
 
-    browser.click('input[value="true"]')
-           .setValue('[name=threeHourTroponin]', "3")
-           .click('#submit')
+    browser.click('input[value="nonDiagnostic"]')
+           .click('#baselineTropDone')
+           .waitForExist('input[name="baselineTroponin"]');
+    browser.setValue('[name=baselineTroponin]', "3")
+           .click('button[type="submit"]')
            .waitForExist('div');
 
     var actualText = browser.getText("div");

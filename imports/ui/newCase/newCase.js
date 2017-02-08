@@ -33,7 +33,7 @@ Template.NewCase.events({
         console.log(error)
         alert(error.reason)
       } else {
-        Flowrouter.go('/new-case/investigations')
+        FlowRouter.go('/cases/new/investigations')
       }
     });
 

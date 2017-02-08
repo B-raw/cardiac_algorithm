@@ -8,25 +8,23 @@ Template.CaseInvestigations.events({
     event.preventDefault();
 
     let target = event.target;
-    let patientAge = target.patientAge.value;
-    let patientGender = target.gender.value;
-    let painDuration = target.painDuration.value;
-    let historyIschaemia = target.historyIschaemia.value;
+    let ecgIschaemia = target.ecgIschaemia.value;
 
-    let newCase = {
-      patientAge,
-      patientGender,
-      painDuration,
-      historyIschaemia
+    var baselineTroponin = (Session.get('showBaselineTropQuestion')) ?
+      target.baselineTroponin.value : "not done"
+
+    var threeHourTroponin = (Session.get('showThreeHourTropQuestion')) ?
+      target.threeHourTroponin.value : "not done"
+
+    var sixHourTroponin = (Session.get('showSixHourTropQuestion')) ?
+      target.sixHourTroponin.value : "not done"
+
+    let investigationResults = {
+      ecgIschaemia,
+      baselineTroponin,
+      threeHourTroponin,
+      sixHourTroponin
     }
-
-    //can save these in database at later date
-    Session.set({
-      'patientAge': patientAge,
-      'patientGender': patientGender,
-      'painDuration': painDuration,
-      'historyIschaemia': historyIschaemia
-    });
 
     insertCase.call(newCase, (error) => {
       if (error) {
@@ -39,20 +37,25 @@ Template.CaseInvestigations.events({
 
   },
   'click #baselineTropDone'(event) {
-    isChecked = event.target.checked
+    let isChecked = event.target.checked
 
     Session.set('showBaselineTropQuestion', isChecked)
   },
   'click #threeHourTropDone'(event) {
-    isChecked = event.target.checked
+    let isChecked = event.target.checked
 
     Session.set('showThreeHourTropQuestion', isChecked)
   },
   'click #sixHourTropDone'(event) {
-    isChecked = event.target.checked
+    let isChecked = event.target.checked
 
     Session.set('showSixHourTropQuestion', isChecked)
   },
+  'click [name="ecgIschaemia"]'(event) {
+    let ecgIschaemia = event.target.id
+
+    Session.set('ecgIschaemia', ecgIschaemia)
+  }
 });
 
 Template.CaseInvestigations.helpers({

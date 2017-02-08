@@ -111,6 +111,14 @@ body {
   font-weight: normal;
 }
 
+.buttons-block-margin {
+  margin-bottom: 15px;
+}
+
+button.active-border {
+  border: 1px solid blue;
+}
+
 /* LISTS */
 
 ul {

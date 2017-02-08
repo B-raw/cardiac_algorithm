@@ -15,19 +15,53 @@
     </div>
 
     <div class="row text-center">
-      <div class="col-sm-8 col-sm-offset-2">
+      <div class="col-sm-12">
         <form id="baseline-troponin-form">
 
           <!-- ECG Ischaemia -->
-          <div class="form-group">
-            <label for="patientAge" class="form-questions">ECG Ischaemia?
-              <div class="btn-toolbar upper-form-input-buffer hidden-xs" role="toolbar" aria-label="Toolbar with button groups">
-                <button type="button" class="btn btn-primary btn-success" value="nonDiagnostic" id="nonDiagnostic">Non-diagnostic</button>
-                <button type="button" class="btn btn-primary btn-danger" value="STdepression" id="STdepression">ST depression or T wave inversion</button>
-                <button type="button" class="btn btn-primary btn-danger" value="STElevation" id="STElevation">ST-segment elevation</button>
-              </div>
+        <div class="form-group">
+          <label for="ecgIschaemia" class="form-questions">
+            ECG Ischaemia?
+          </label>
+          <div>
+            <label for="ecgIschaemia" class="radio-inline">
+              <input type="radio" name="ecgIschaemia" value="nonDiagnostic" required> Non-diagnostic
+            </label>
+            <label for="ecgIschaemia" class="radio-inline">
+              <input type="radio" name="ecgIschaemia" value="STdepression" required> ST depression or T wave inversion
+            </label>
+            <label for="ecgIschaemia" class="radio-inline">
+              <input type="radio" name="ecgIschaemia" value="STElevation" required> ST-segment elevation
             </label>
           </div>
+        </div>
+
+          <!-- <div>
+            <label for="ECGIschaemia" class="form-questions">ECG Ischaemia?
+              <div class="btn-toolbar upper-form-input-buffer" role="toolbar" aria-label="Toolbar with button groups">
+                <div class="col-sm-3 text-center">
+                  <button class="btn btn-primary btn-success btn-display-block-sm
+                    buttons-block-margin {{ isActive 'nonDiagnostic' }}"
+                    name="ECGIschaemia" value="nonDiagnostic" id="nonDiagnostic">
+                    Non-diagnostic
+                  </button>
+                </div>
+                <div class="col-sm-5 text-center">
+                  <button class="btn btn-primary btn-danger btn-display-block-sm
+                    buttons-block-margin {{ isActive 'STdepression' }}" name="ECGIschaemia"
+                    value="STdepression" id="STdepression">
+                    ST depression or T wave inversion
+                  </button>
+                </div>
+                <div class="col-sm-3 text-center">
+                  <button class="btn btn-primary btn-danger btn-display-block-sm
+                    {{ isActive 'STElevation' }}" value="STElevation" name="ECGIschaemia"
+                    id="STElevation">ST-segment elevation
+                  </button>
+                </div>
+              </div>
+            </label>
+          </div> -->
 
           <!-- Which Trops? -->
           <div class="form-group">
@@ -50,7 +84,7 @@
           <!-- Baseline Trop -->
           {{ #if showBaselineTropQuestion }}
             <div class="form-group">
-              <label for="baselineTroponin" class="form-questions">What was the hs-cTnI concentration at presentation (ng/L)?
+              <label for="baselineTroponin" class="form-questions">Presentation hs-cTnI concentration?
                 <div class="input-buffer">
                   <input type="number" name="baselineTroponin" class="form-control" min="0" max="50000" required>
                 </div>
@@ -61,7 +95,7 @@
           <!-- Three hour Trop -->
           {{ #if showThreeHourTropQuestion }}
             <div class="form-group">
-              <label for="threeHourTroponin" class="form-questions">What was the hs-cTnI concentration at three hours (ng/L)?
+              <label for="threeHourTroponin" class="form-questions">3 hour hs-cTnI concentration?
                 <div class="input-buffer">
                   <input type="number" name="threeHourTroponin" class="form-control" required>
                 </div>
@@ -72,7 +106,7 @@
           <!-- Six hour Trop -->
           {{ #if showSixHourTropQuestion}}
             <div class="form-group">
-              <label for="sixHourTroponin" class="form-questions">What was the hs-cTnI concentration at six hours (ng/L)?
+              <label for="sixHourTroponin" class="form-questions">6 hour hs-cTnI concentration?
                 <div class="input-buffer">
                   <input type="number" name="sixHourTroponin" class="form-control" required>
                 </div>

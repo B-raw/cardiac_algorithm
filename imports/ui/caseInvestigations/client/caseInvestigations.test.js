@@ -22,19 +22,51 @@ describe('Case Investigations', function() {
   //   });
   // });
 
-  it('shows pain duration question if trop < 5', function () {
+  it('shows baseline trop question if checkbox ticked (session true)', function () {
     let data = {};
     //troponin is less than 5 so should see chest pain question
-    Session.set('baselineTroponinDone', true);
+    Session.set('showBaselineTropQuestion', true);
 
-    withRenderedTemplate('BaselineTroponin', data, el => {
-      expect($(el).context.innerHTML).to.include("What was the hs-cTnI concentration at presentation (ng/L)?")
+    withRenderedTemplate('CaseInvestigations', data, el => {
+      expect($(el).context.innerHTML).to.include("Presentation hs-cTnI concentration?")
     });
 
-    Session.set('baselineTroponinDone', false);
+    Session.set('showBaselineTropQuestion', false);
 
-    withRenderedTemplate('BaselineTroponin', data, el => {
-      expect($(el).context.innerHTML).to.not.include("What was the hs-cTnI concentration at presentation (ng/L)?")
+    withRenderedTemplate('CaseInvestigations', data, el => {
+      expect($(el).context.innerHTML).to.not.include("Presentation hs-cTnI concentration?")
+    });
+  });
+
+  it('shows three hour trop question if checkbox ticked (session true)', function () {
+    let data = {};
+    //troponin is less than 5 so should see chest pain question
+    Session.set('showThreeHourTropQuestion', true);
+
+    withRenderedTemplate('CaseInvestigations', data, el => {
+      expect($(el).context.innerHTML).to.include("3 hour hs-cTnI concentration?")
+    });
+
+    Session.set('showThreeHourTropQuestion', false);
+
+    withRenderedTemplate('CaseInvestigations', data, el => {
+      expect($(el).context.innerHTML).to.not.include("3 hour hs-cTnI concentration?")
+    });
+  });
+
+  it('shows six hour trop question if checkbox ticked (session true)', function () {
+    let data = {};
+    //troponin is less than 5 so should see chest pain question
+    Session.set('showSixHourTropQuestion', true);
+
+    withRenderedTemplate('CaseInvestigations', data, el => {
+      expect($(el).context.innerHTML).to.include("6 hour hs-cTnI concentration?")
+    });
+
+    Session.set('showSixHourTropQuestion', false);
+
+    withRenderedTemplate('CaseInvestigations', data, el => {
+      expect($(el).context.innerHTML).to.not.include("6 hour hs-cTnI concentration?")
     });
   });
 
