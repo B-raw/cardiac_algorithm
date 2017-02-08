@@ -1,29 +1,38 @@
 <template name="Cases">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h3 class=text-center>My Cases</h3>
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Duration of symptoms</th>
+                <th>PMH of IHD</th>
+                <th>ECG ischaemia?</th>
+                <th>Baseline hs-cTnI</th>
+                <th>hs-cTnI (3 hours)</th>
+                <th>hs-cTnI (6 hours)</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each cases}}
+                <tr>
+                  <td>{{ patientAge }}</td>
+                  <td>{{ patientGender }}</td>
+                  <td>{{ painDuration }}</td>
+                  <td>{{ historyIschaemia }}</td>
+                </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Age</th>
-      <th>Gender</th>
-      <th>Duration of symptoms</th>
-      <th>History of Ischaemiac Heart Disease?</th>
-      <th>ECG ischaemia?</th>
-      <th>Presentation hs-cTnI</th>
-      <th>hs-cTnI at 3 hours</th>
-      <th>hs-cTnI at 6 hours</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each cases}}
-      <tr>
-        <td>{{ patientAge }}</td>
-        <td>{{ patientGender }}</td>
-        <td>{{ painDuration }}</td>
-        <td>{{ historyIschaemia }}</td>
-      </tr>
-    {{/each}}
-  </tbody>
-</table>
 
 
 
