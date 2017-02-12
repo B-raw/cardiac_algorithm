@@ -69,20 +69,29 @@
               <a href="#painDurationInfo" data-toggle="collapse">
                 <i class="fa fa-info-circle" aria-hidden="true"></i>
               </a>
+              <div class="select-age-box" role="toolbar" aria-label="Toolbar with button groups">
+                <select class="form-control pad-select-left" name="painDuration" required>
+                  <option value="" disabled selected hidden>Select time...</option>
+                  <option value="<1">&lt; 1 hour</option>
+                  <option value="1">1 hour</option>
+                  <option value="2">2 hours</option>
+                  <option value="3">3 hours</option>
+                  <option value="4">4 hours</option>
+                  <option value="5">5 hours</option>
+                  <option value="6">6 hours</option>
+                  <option value="7">7 hours</option>
+                  <option value="8">8 hours</option>
+                  <option value="9">9 hours</option>
+                  <option value="10">10 hours</option>
+                  <option value="11">11 hours</option>
+                  <option value="12">12 hours</option>
+                  <option value=">12">&gt; 12 hours</option>
+                </select>
+              </div>
             </label>
-            <div>
-              <label for="painDuration" class="radio-inline">
-                <input type="radio" name="painDuration" value="lt2hours" required> &lt; 2 hours ago
-              </label>
-              <label for="painDuration" class="radio-inline">
-                <input type="radio" name="painDuration" value="2to12hours" required> 2 - 12 hours ago
-              </label>
-              <label for="painDuration" class="radio-inline">
-                <input type="radio" name="painDuration" value="gt12hours" required> &gt; 12 hours ago
-              </label>
-            </div>
             <p class="information-text collapse" id="painDurationInfo">Patients with symptom onset &lt; 2 hours from presentation should have a repeat hs-cTnI measured 3 hours after presentation, even if hs-cTnI is &lt; 5.</p>
           </div>
+
           <div class="form-group">
             <label for="historyIschaemia" class="form-questions">
               Past medical history of ischaemic heart disease?

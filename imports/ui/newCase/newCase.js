@@ -13,13 +13,6 @@ Template.NewCase.events({
     let painDuration = target.painDuration.value;
     let historyIschaemia = target.historyIschaemia.value;
 
-    let newCase = {
-      patientAge,
-      patientGender,
-      painDuration,
-      historyIschaemia
-    }
-
     //can save these in database at later date
     Session.set({
       'patientAge': patientAge,
@@ -28,14 +21,6 @@ Template.NewCase.events({
       'historyIschaemia': historyIschaemia
     });
 
-    insertCase.call(newCase, (error) => {
-      if (error) {
-        console.log(error)
-        alert(error.reason)
-      } else {
-        FlowRouter.go('/cases/new/investigations')
-      }
-    });
-
+    FlowRouter.go('/cases/new/investigations')
   }
 });

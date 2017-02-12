@@ -2,11 +2,19 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-12">
-        <h3 class=text-center>My Cases</h3>
+        <h3 class=text-center>
+          My Cases
+        {{ #if editModeCases }}
+          <button class="btn btn-primary" id="editAllCases">Exit Edit Mode</button>
+        {{ else }}
+          <button class="btn btn-primary" id="editAllCases">Edit My Cases</button>
+        {{ /if }}
+        </h3>
         <div class="table-responsive">
           <table class="table table-hover">
             <thead>
               <tr>
+                <th>Added</th>
                 <th>Age</th>
                 <th>Gender</th>
                 <th>Duration of symptoms</th>
@@ -15,16 +23,63 @@
                 <th>Baseline hs-cTnI</th>
                 <th>hs-cTnI (3 hours)</th>
                 <th>hs-cTnI (6 hours)</th>
+                <th>Final Diagnosis</th>
+                {{ #if editModeCases }}
+                  <th colspan="2">Options</th>
+                {{/if}}
               </tr>
             </thead>
             <tbody>
               {{#each cases}}
                 <tr>
-                  <td>{{ patientAge }}</td>
-                  <td>{{ patientGender }}</td>
-                  <td>{{ painDuration }}</td>
-                  <td>{{ historyIschaemia }}</td>
-                </tr>
+                  <td>{{ formatDate createdAt }}</td>
+                  {{ #if individualEditMode _id }}
+                    <td>{{ patientAge }}</td>
+                    <td>{{ patientGender }}</td>
+                    <td>{{ painDuration }} hours</td>
+                    <td>{{ historyIschaemia }}</td>
+                    <td>{{ ecgIschaemia }}</td>
+
+                    <!-- <td>
+                      <select class="form-control pad-select-left" name="ecgIschaemia">
+                        <option value="{{ ecgIschaemia }}" disabled selected hidden>{{ecgIschaemia}}</option>
+                        <option value="nonDiagnostic">Non-diagnostic</option>
+                        <option value="STdepression">ST depression or T wave inversion</option>
+                        <option value="STElevation">ST-segment elevation</option>
+                      </select>
+                    </td> -->
+                    <td><input type="number" name="baselineTroponin" class="form-control" value="{{baselineTroponin}}"></td>
+                    <td><input type="number" name="threeHourTroponin" class="form-control" value="{{threeHourTroponin}}"></td>
+                    <td><input type="number" name="sixHourTroponin" class="form-control" value="{{sixHourTroponin}}"></td>
+                    <td>
+                      <select class="form-control pad-select-left" name="finalDiagnosis">
+                        <option value="" disabled hidden>Select diagnosis...</option>
+                        <option value="18-30">type 1 myocardial infarction</option>
+                        <option value="31-40">type 2 myocardial infarction</option>
+                        <option value="41-50">myocardial injury</option>
+                        <option value="51-60">other</option>
+                      </select>
+                    </td>
+                    {{ #if editModeCases }}
+                      <th><button class="btn btn-xs btn-primary js-save" id={{_id}}>Save</button></th>
+                      <th><button class="btn btn-xs btn-warning js-cancel">Cancel</button></th>
+                    {{/if}}
+                  {{ else }}
+                    <td>{{ patientAge }}</td>
+                    <td>{{ patientGender }}</td>
+                    <td>{{ painDuration }} hours</td>
+                    <td>{{ historyIschaemia }}</td>
+                    <td>{{ ecgIschaemia }}</td>
+                    <td>{{ baselineTroponin }}</td>
+                    <td>{{ threeHourTroponin }}</td>
+                    <td>{{ sixHourTroponin }}</td>
+                    <td>{{ finalDiagnosis }}</td>
+                    {{ #if editModeCases }}
+                      <th><button class="btn btn-xs btn-primary js-edit" id={{_id}}>Edit</button></th>
+                      <th><button class="btn btn-xs btn-danger js-delete" id={{_id}}>Delete</button></th>
+                    {{/if}}
+                  {{ /if }}
+              </tr>
               {{/each}}
             </tbody>
           </table>

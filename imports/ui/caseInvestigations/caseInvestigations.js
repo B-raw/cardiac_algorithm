@@ -11,15 +11,19 @@ Template.CaseInvestigations.events({
     let ecgIschaemia = target.ecgIschaemia.value;
 
     var baselineTroponin = (Session.get('showBaselineTropQuestion')) ?
-      target.baselineTroponin.value : "not done"
+      target.baselineTroponin.value : "-"
 
     var threeHourTroponin = (Session.get('showThreeHourTropQuestion')) ?
-      target.threeHourTroponin.value : "not done"
+      target.threeHourTroponin.value : "-"
 
     var sixHourTroponin = (Session.get('showSixHourTropQuestion')) ?
-      target.sixHourTroponin.value : "not done"
+      target.sixHourTroponin.value : "-"
 
-    let investigationResults = {
+    let newCase = {
+      patientAge: Session.get('patientAge'),
+      patientGender: Session.get('patientGender'),
+      painDuration: Session.get('painDuration'),
+      historyIschaemia: Session.get('historyIschaemia'),
       ecgIschaemia,
       baselineTroponin,
       threeHourTroponin,
@@ -31,7 +35,7 @@ Template.CaseInvestigations.events({
         console.log(error)
         alert(error.reason)
       } else {
-        Flowrouter.go('/cases')
+        FlowRouter.go('/cases')
       }
     });
 
