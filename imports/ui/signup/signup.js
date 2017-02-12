@@ -2,7 +2,14 @@ import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base'
 import { Template } from 'meteor/templating';
 import { FlowRouter } from 'meteor/kadira:flow-router';
+import './countrySelect.js'
 import './signup.html';
+
+Template.Signup.onRendered(function() {
+  $( '#country' ).countrySelect({
+    preferredCountries: ['gb', 'us']
+  });
+})
 
 Template.Signup.events({
     'submit form': function(event){
