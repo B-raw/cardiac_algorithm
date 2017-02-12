@@ -42,3 +42,5 @@ practicalmeteor:faker
 mdg:validated-method
 momentjs:moment
 themeteorchef:jquery-validation
+service-configuration
+accounts-facebook
