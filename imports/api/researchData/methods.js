@@ -63,6 +63,10 @@ export const editCase = new ValidatedMethod({
     sixHourTroponin: {
       type: String,
       optional: true
+    },
+    finalDiagnosis: {
+      type: String,
+      optional: true
     }
   }).validator(),
   run(newCaseInfo) {
@@ -80,7 +84,8 @@ export const editCase = new ValidatedMethod({
 
     Cases.update({ _id: caseId }, { $set: { baselineTroponin: newCaseInfo.baselineTroponin,
                                             threeHourTroponin: newCaseInfo.threeHourTroponin,
-                                            sixHourTroponin: newCaseInfo.sixHourTroponin
+                                            sixHourTroponin: newCaseInfo.sixHourTroponin,
+                                            finalDiagnosis: newCaseInfo.finalDiagnosis
                                           }});
   },
 });

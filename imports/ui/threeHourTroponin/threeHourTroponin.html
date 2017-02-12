@@ -17,11 +17,12 @@
       <div class="col-sm-8 col-sm-offset-2">
         <form id="three-hour-troponin-form">
           <div class="form-group">
-            <label for="threeHourTroponin" class="form-questions">What is the hs-cTnI concentration at three hours (ng/L)?
-              <div class="input-buffer">
-                <input type="number" name="threeHourTroponin" class="form-control" required>
-              </div>
+            <label for="threeHourTroponin" class="form-questions">
+              What is the hs-cTnI concentration at three hours (ng/L)?
             </label>
+            <div class="input-buffer">
+              <input type="number" name="threeHourTroponin" class="form-control" min="0" max="50000" required>
+            </div>
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>

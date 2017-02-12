@@ -4,7 +4,6 @@ import './mainLayout.html';
 import './footer.html';
 import './navbar.js';
 
-
 import '../frontpage/frontpage.js';
 import '../initialAssessment/initialAssessment.js';
 import '../stElevation/stElevation.js'

@@ -133,27 +133,27 @@ describe('User registration', function () {
 
   });
 
-  it('can view Ts and Cs from signup screen', function() {
-      browser.url("localhost:3000/signup")
-             .waitForExist("#tsAndCsPage");
-      browser.click("#tsAndCsPage")
-             .waitForExist("div");
+  // it('can view Ts and Cs from signup screen', function() {
+  //     browser.url("localhost:3000/signup")
+  //            .waitForExist("#tsAndCsPage");
+  //     browser.click("#tsAndCsPage")
+  //            .waitForExist("div");
+  //
+  //     var currentUrl = browser.url().value
+  //     expect(currentUrl).to.equal("http://localhost:3000/terms-conditions")
+  //
+  // });
 
-      var currentUrl = browser.url().value
-      expect(currentUrl).to.equal("http://localhost:3000/terms-conditions")
-
-  });
-
-  it('can view privacy policy from signup screen', function() {
-      browser.url("localhost:3000/signup")
-             .waitForExist("#privacyPolicy");
-      browser.click("#privacyPolicy")
-             .waitForExist("div");
-
-      var currentUrl = browser.url().value
-      expect(currentUrl).to.equal("http://localhost:3000/privacy-policy")
-
-  });
+  // it('can view privacy policy from signup screen', function() {
+  //     browser.url("localhost:3000/signup")
+  //            .waitForExist("#privacyPolicy");
+  //     browser.click("#privacyPolicy")
+  //            .waitForExist("h4");
+  //
+  //     var currentUrl = browser.url().value
+  //     expect(currentUrl).to.equal("http://localhost:3000/privacy-policy")
+  //
+  // });
 
 
 });

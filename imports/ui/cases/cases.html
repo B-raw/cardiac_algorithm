@@ -2,14 +2,22 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-12">
-        <h3 class=text-center>
-          My Cases
+        <h3 class=text-center>My Cases</h3>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="text-center col-sm-4 col-sm-offset-4">
         {{ #if editModeCases }}
-          <button class="btn btn-primary" id="editAllCases">Exit Edit Mode</button>
+          <button class="btn btn-primary btn-block text-center" id="editAllCases">Exit Edit Mode</button>
         {{ else }}
-          <button class="btn btn-primary" id="editAllCases">Edit My Cases</button>
+          <button class="btn btn-primary btn-block text-center" id="editAllCases">Edit My Cases</button>
         {{ /if }}
-        </h3>
+      </div>
+    </div>
+
+    <div class="row top-buffer">
+      <div class="col-sm-12">
         <div class="table-responsive">
           <table class="table table-hover">
             <thead>
@@ -25,13 +33,13 @@
                 <th>hs-cTnI (6 hours)</th>
                 <th>Final Diagnosis</th>
                 {{ #if editModeCases }}
-                  <th colspan="2">Options</th>
+                  <th colspan="2"></th>
                 {{/if}}
               </tr>
             </thead>
             <tbody>
               {{#each cases}}
-                <tr>
+                <tr id="_id">
                   <td>{{ formatDate createdAt }}</td>
                   {{ #if individualEditMode _id }}
                     <td>{{ patientAge }}</td>
@@ -40,7 +48,8 @@
                     <td>{{ historyIschaemia }}</td>
                     <td>{{ ecgIschaemia }}</td>
 
-                    <!-- <td>
+                    <!-- ECG input
+                    <td>
                       <select class="form-control pad-select-left" name="ecgIschaemia">
                         <option value="{{ ecgIschaemia }}" disabled selected hidden>{{ecgIschaemia}}</option>
                         <option value="nonDiagnostic">Non-diagnostic</option>
@@ -48,21 +57,22 @@
                         <option value="STElevation">ST-segment elevation</option>
                       </select>
                     </td> -->
+
                     <td><input type="number" name="baselineTroponin" class="form-control" value="{{baselineTroponin}}"></td>
                     <td><input type="number" name="threeHourTroponin" class="form-control" value="{{threeHourTroponin}}"></td>
                     <td><input type="number" name="sixHourTroponin" class="form-control" value="{{sixHourTroponin}}"></td>
                     <td>
-                      <select class="form-control pad-select-left" name="finalDiagnosis">
-                        <option value="" disabled hidden>Select diagnosis...</option>
-                        <option value="18-30">type 1 myocardial infarction</option>
-                        <option value="31-40">type 2 myocardial infarction</option>
-                        <option value="41-50">myocardial injury</option>
-                        <option value="51-60">other</option>
+                      <select class="form-control pad-select-left" name="finalDiagnosis" id="finalDiagnosis">
+                        <option value="-">Select diagnosis...</option>
+                        <option value="type 1 myocardial infarction">type 1 myocardial infarction</option>
+                        <option value="type 2 myocardial infarction">type 2 myocardial infarction</option>
+                        <option value="myocardial injury">myocardial injury</option>
+                        <option value="other">other</option>
                       </select>
                     </td>
                     {{ #if editModeCases }}
-                      <th><button class="btn btn-xs btn-primary js-save" id={{_id}}>Save</button></th>
-                      <th><button class="btn btn-xs btn-warning js-cancel">Cancel</button></th>
+                      <td><button class="btn btn-xs btn-primary js-save" id={{_id}}>Save</button></td>
+                      <td><button class="btn btn-xs btn-warning js-cancel">Cancel</button></td>
                     {{/if}}
                   {{ else }}
                     <td>{{ patientAge }}</td>

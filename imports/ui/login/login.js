@@ -3,6 +3,11 @@ import { Accounts } from 'meteor/accounts-base'
 import { Template } from 'meteor/templating';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import './login.html';
+import '../helpers/validationHelper.js'
+
+Template.Login.onRendered(function() {
+  $( "#login-form" ).validate();
+})
 
 Template.Login.events({
     'submit form': function(event){
@@ -15,6 +20,10 @@ Template.Login.events({
       Meteor.loginWithPassword(email, password, function(error) {
         if (error) {
           console.log(error.reason)
+          $('div#errors').html('<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>')
+                         .html( error.reason )
+                         .addClass("alert alert-danger")
+                         .attr('role', 'alert');
         } else {
           FlowRouter.go('home')
         }

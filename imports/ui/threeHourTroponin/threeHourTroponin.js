@@ -1,6 +1,11 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import './threeHourTroponin.html'
+import '../helpers/validationHelper.js'
+
+Template.ThreeHourTroponin.onRendered(function() {
+  $( "#three-hour-troponin-form" ).validate();
+})
 
 Template.ThreeHourTroponin.events({
   'submit #three-hour-troponin-form'(event) {

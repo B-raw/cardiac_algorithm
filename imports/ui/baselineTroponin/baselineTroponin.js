@@ -1,9 +1,12 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import './baselineTroponin.html'
+import '../helpers/validationHelper.js'
 
 Template.BaselineTroponin.onRendered(function() {
   this.$(".painTooltip").tooltip();
+
+  $( "#baseline-troponin-form" ).validate();
 })
 
 Template.BaselineTroponin.events({

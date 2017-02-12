@@ -38,9 +38,9 @@ Template.Cases.events({
     event.preventDefault();
     let target = event.target;
     let caseId = target.id;
-    var sel = document.getElementsByName("option")
-    // var text= sel.options[sel.selectedIndex].text;
-    // console.log(sel)
+
+    var selectBox = document.getElementById("finalDiagnosis")
+    var finalDiagnosis = selectBox.options[selectBox.selectedIndex].value || "-"
     var baselineTroponin = document.getElementsByName("baselineTroponin")[0].value || "-"
     var threeHourTroponin = document.getElementsByName("threeHourTroponin")[0].value || "-"
     var sixHourTroponin = document.getElementsByName("sixHourTroponin")[0].value || "-"
@@ -50,7 +50,8 @@ Template.Cases.events({
       caseId,
       baselineTroponin,
       threeHourTroponin,
-      sixHourTroponin
+      sixHourTroponin,
+      finalDiagnosis
     }
 
     template.individualEditMode.set(!template.individualEditMode.get());
@@ -92,10 +93,6 @@ Template.Cases.helpers({
     return Template.instance().editModeCases.get();
   },
   individualEditMode(caseId) {
-    if (caseId == Template.instance().individualEditMode.get()) {
-      return true;
-    } else {
-      return false;
-    }
+    return (caseId == Template.instance().individualEditMode.get())
   }
 });
