@@ -94,4 +94,36 @@ describe('Six Hour Troponin', function() {
     var currentUrl = browser.url().value
     expect(currentUrl).to.equal("http://localhost:3000/initial-assessment")
   });
+
+  it('shows correct data entered @watch', function() {
+    browser.url("localhost:3000/baseline-troponin")
+           .waitForExist("div");
+
+    browser.setValue('[name=baselineTroponin]', "10")
+           .click('input[value="male"]')
+           .click('button[type=submit]')
+           .waitForExist("div");
+
+    var dataEnteredText = browser.getText(".panel-body p");
+    expect(dataEnteredText).to.include("hs-cTnI at Presentation: 10");
+
+    browser.setValue('[name=threeHourTroponin]', "13")
+           .click('button[type=submit]')
+           .waitForExist("div");
+
+    var dataEnteredText = browser.getText(".panel-body p");
+    expect(dataEnteredText).to.include("Three Hour hs-cTnI: 13");
+
+    browser.setValue('[name=sixHourTroponin]', "15")
+           .click('button[type=submit]')
+
+    var currentUrl = browser.url().value
+    expect(currentUrl).to.equal("http://localhost:3000/six-hour-mi-ruled-out")
+
+    var headerText = browser.getText("h3");
+    expect(headerText).to.include("Myocardial infarction ruled out");
+
+    var dataEnteredText = browser.getText(".panel-body p");
+    expect(dataEnteredText).to.include("Six Hour hs-cTnI: 15");
+  });
 });

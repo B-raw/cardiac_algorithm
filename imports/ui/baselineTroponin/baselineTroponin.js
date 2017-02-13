@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import './baselineTroponin.html'
 import '../helpers/validationHelper.js'
+import '../dataEntered/dataEntered.js'
 
 Template.BaselineTroponin.onRendered(function() {
   this.$(".painTooltip").tooltip();

@@ -1,0 +1,23 @@
+<template name="DataEntered">
+  <div class="panel panel-info in-column-buffer">
+    <div class="panel-heading text-center">
+      <h3>Data Entered</h3>
+    </div>
+    <div class="panel-body text-center">
+      <p>ECG: non-diagnostic</p>
+      {{ #if baselineTropEntered }}
+        <p>hs-cTnI at Presentation: {{ baselineTropEntered }}</p>
+      {{ /if }}
+      {{ #if threeHourTropEntered }}
+        <p>Three Hour hs-cTnI: {{ threeHourTropEntered }}</p>
+      {{ /if }}
+      {{ #if sixHourTropEntered }}
+        <p>Six Hour hs-cTnI: {{ sixHourTropEntered }}</p>
+      {{ /if }}
+      <div>
+        <a href="/" class="btn btn-primary">Restart Pathway</a>
+      </div>
+      {{ >ViewPathwayButton }}
+    </div>
+  </div>
+</template>

@@ -160,5 +160,4 @@ describe('Three Hour Troponin', function() {
     expect(infoText).to.contain(informationText);
   });
 
-
 });

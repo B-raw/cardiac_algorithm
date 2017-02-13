@@ -7,6 +7,8 @@ import '../../ui/layouts/mainLayout.js';
 FlowRouter.route('/', {
   name: 'home',
   action() {
+    clearAllSessions();
+
     BlazeLayout.render("mainLayout", { content: "Frontpage" });
   }
 });
@@ -149,3 +151,11 @@ FlowRouter.route('/cases', {
     BlazeLayout.render("mainLayout", { content: "Cases" });
   }
 });
+
+function clearAllSessions() {
+  Session.set('baselineTroponin', null);
+  Session.set('threeHourTroponin', null);
+  Session.set('sixHourTroponin', null);
+  Session.set('patientGender', null);
+  Session.set('painDurationBoolean', null);
+}
