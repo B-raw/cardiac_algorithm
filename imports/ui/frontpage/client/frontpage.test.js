@@ -17,8 +17,8 @@ describe('Frontpage', function() {
     withRenderedTemplate('Frontpage', data, el => {
       expect($(el).context.innerText).to.include("High-sensitivity Troponin in the Evaluation of Patients with Acute Coronary Syndromes")
       expect($(el).context.innerHTML).to.include("This pathway is for patients with chest pain and suspected acute myocardial infarction evaluated using the Abbott high-sensitivity cardiac troponin I assay")
-      expect($(el).context.innerHTML).to.include("New Patient")
-      expect($(el).context.innerHTML).to.include("Test Patient")
+      expect($(el).context.innerHTML).to.include("Log Case")
+      expect($(el).context.innerHTML).to.include("Try Pathway")
 
     });
   });

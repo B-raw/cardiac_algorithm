@@ -16,12 +16,13 @@
           {{#if currentUser}}
             <a href="/cases/new" class="btn btn-info btn-lg btn-display-block-sm" id="new-patient-loggedin">New Patient</a>
           {{else}}
-            <a href="/login" class="btn btn-info btn-lg btn-display-block-sm" id="new-patient">New Patient</a>
+            <a href="/login" class="btn btn-info btn-lg btn-display-block-sm" id="new-patient">Log Case</a>
             <a href="/login" class="information-text block-information" id="signup-required">Log In Required</a>
           {{/if}}
+            <small class="information-text block-information" id="signup-required">Data will be anonymised and saved</small>
         </div>
         <div class="col-sm-4 text-center in-column-buffer">
-          <a href="/initial-assessment" class="btn btn-info btn-lg btn-display-block-sm" id="begin-assessment">Test Patient</a>
+          <a href="/initial-assessment" class="btn btn-info btn-lg btn-display-block-sm" id="begin-assessment">Try Pathway</a>
         </div>
       </div>
     </div>
