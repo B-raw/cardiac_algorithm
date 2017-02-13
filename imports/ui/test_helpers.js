@@ -11,6 +11,7 @@ import { expect } from 'meteor/practicalmeteor:chai';
 import { be } from 'meteor/practicalmeteor:chai';
 import { assert } from 'meteor/practicalmeteor:chai';
 import { resetDatabase } from 'meteor/xolvio:cleaner';
+import './viewPathwayButton/viewPathwayButton.js'
 
 const withDiv = function withDiv(callback) {
   const el = document.createElement('div');
