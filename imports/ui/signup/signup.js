@@ -16,13 +16,15 @@ Template.Signup.events({
       event.preventDefault();
       var target = event.target;
 
-      console.log(target.country.value)
+      console.log(target.specialty.value)
+      console.log(target.role.value)
 
       var firstName = target.firstName.value;
       var lastName = target.lastName.value;
       var country = target.country.value
       var organisation = target.organisation.value;
-      var profession = target.profession.value;
+      var specialty = target.specialty.value;
+      var role = target.role.value;
       var email = target.email.value;
       var password = target.password.value;
       var tsAndCs = target.tsAndCs.checked;
@@ -34,7 +36,8 @@ Template.Signup.events({
                  lastName,
                  country,
                  organisation,
-                 profession
+                 specialty,
+                 role
                }
       }
 

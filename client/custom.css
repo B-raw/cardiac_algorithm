@@ -81,6 +81,13 @@ body {
 
 .select-age-box {
   width: 110px;
+  font-weight: normal;
+  margin: 10px auto 0 auto;
+}
+
+.select-specialty-box {
+  width: 310px;
+  font-weight: normal;
   margin: 10px auto 0 auto;
 }
 

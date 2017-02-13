@@ -135,7 +135,22 @@ describe('User Flow', function () {
         var headerText = browser.getText(".panel-body");
         expect(headerText).to.include("copy discharge letter to cardiology");
       });
-
     });
+  });
+
+  it('can view pathway page from home', function() {
+      browser.url("localhost:3000")
+             .waitForExist("nav");
+      browser.click(".dropdown-toggle")
+             .waitForExist("[href='/pathway']");
+      browser.click("[href='/pathway']")
+             .waitForExist("div");
+
+      var navbarText = browser.getText("nav");
+      expect(navbarText).to.include("Pathway");
+
+      var currentUrl = browser.url().value
+      expect(currentUrl).to.equal("http://localhost:3000/pathway")
+
   });
 });

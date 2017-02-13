@@ -46,6 +46,13 @@ FlowRouter.route('/privacy-policy', {
   }
 });
 
+FlowRouter.route('/pathway', {
+  name: 'pathway',
+  action() {
+    BlazeLayout.render("mainLayout", { content: "Pathway" });
+  }
+});
+
 FlowRouter.route('/initial-assessment', {
   name: 'initial-assessment',
   action() {

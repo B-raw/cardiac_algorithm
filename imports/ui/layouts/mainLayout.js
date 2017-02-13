@@ -23,3 +23,4 @@ import '../termsConditions/termsConditions.js'
 import '../newCase/newCase.js';
 import '../cases/cases.js';
 import '../caseInvestigations/caseInvestigations.js';
+import '../pathway/pathway.js';

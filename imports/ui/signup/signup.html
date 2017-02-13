@@ -34,22 +34,32 @@
                 <input type="text" class="form-control" id="organisation" placeholder="" required/>
               </div>
               <div class="form-group">
-                <label for="profession">Role</label>
-                <input type="text" class="form-control" id="profession" placeholder="eg Research Fellow Cardiology" required/>
+                <label for="role">Role
+                  <div class="select-specialty-box" role="toolbar">
+                    <select class="form-control pad-select-left" name="role">
+                      <option value="" disabled selected hidden>Select role...</option>
+                      <option value="Physician">Physician</option>
+                      <option value="Nurse">Nurse</option>
+                      <option value="Researcher">Researcher</option>
+                      <option value="Hospital Manager">Hospital Manager</option>
+                      <option value="Industry">Industry</option>
+                      <option value="Clinical Scientist">Clinical Scientist</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
+                </label>
               </div>
               <div class="form-group">
-                <label for="profession">Specialty
-                  <div class="select-age-box" role="toolbar">
+                <label for="specialty">Specialty
+                  <div class="select-specialty-box" role="toolbar">
                     <select class="form-control pad-select-left" name="specialty">
                       <option value="" disabled selected hidden>Select specialty...</option>
-                      <option value="18-30">Physician</option>
-                      <option value="31-40">31-40</option>
-                      <option value="41-50">41-50</option>
-                      <option value="51-60">51-60</option>
-                      <option value="61-70">61-70</option>
-                      <option value="71-80">71-80</option>
-                      <option value="81-90">81-90</option>
-                      <option value="90+">90+</option>
+                      <option value="Emergency Medicine">Emergency Medicine</option>
+                      <option value="Internal Medicine">Internal Medicine</option>
+                      <option value="General Practice">General Practice</option>
+                      <option value="Cardiology">Cardiology</option>
+                      <option value="Clinical Chemistry">Clinical Chemistry</option>
+                      <option value="Other">Other</option>
                     </select>
                   </div>
                 </label>

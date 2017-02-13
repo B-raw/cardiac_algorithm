@@ -6,8 +6,10 @@ export function signUp(browserName, firstName, lastName, email, password){
              .setValue('#lastName', lastName)
              .setValue('#email', email)
              .setValue('#password', password)
+             .setValue('#organisation', "United Kingdom")
              .setValue('#organisation', "Royal Infirmary")
-             .setValue('#profession', "Senior House Office")
+             .click("[value='Physician']")
+             .click("[value='Emergency Medicine']")
              .click('#tsAndCs')
              .click('#login-submit')
              .waitForExist('.jumbotron');
