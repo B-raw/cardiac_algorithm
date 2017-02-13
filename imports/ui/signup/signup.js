@@ -16,8 +16,11 @@ Template.Signup.events({
       event.preventDefault();
       var target = event.target;
 
+      console.log(target.country.value)
+
       var firstName = target.firstName.value;
       var lastName = target.lastName.value;
+      var country = target.country.value
       var organisation = target.organisation.value;
       var profession = target.profession.value;
       var email = target.email.value;
@@ -29,6 +32,7 @@ Template.Signup.events({
         password,
         about: { firstName,
                  lastName,
+                 country,
                  organisation,
                  profession
                }

@@ -26,7 +26,7 @@
                 <input type="name" class="form-control" id="lastName" placeholder="Last Name" required/>
               </div>
               <div class="form-group">
-                <label for="name">Country</label>
+                <label for="country">Country</label>
                 <input type="text" class="form-control" id="country"/>
               </div>
               <div class="form-group">
@@ -34,8 +34,25 @@
                 <input type="text" class="form-control" id="organisation" placeholder="" required/>
               </div>
               <div class="form-group">
-                <label for="profession">Profession / Specialty</label>
+                <label for="profession">Role</label>
                 <input type="text" class="form-control" id="profession" placeholder="eg Research Fellow Cardiology" required/>
+              </div>
+              <div class="form-group">
+                <label for="profession">Specialty
+                  <div class="select-age-box" role="toolbar">
+                    <select class="form-control pad-select-left" name="specialty">
+                      <option value="" disabled selected hidden>Select specialty...</option>
+                      <option value="18-30">Physician</option>
+                      <option value="31-40">31-40</option>
+                      <option value="41-50">41-50</option>
+                      <option value="51-60">51-60</option>
+                      <option value="61-70">61-70</option>
+                      <option value="71-80">71-80</option>
+                      <option value="81-90">81-90</option>
+                      <option value="90+">90+</option>
+                    </select>
+                  </div>
+                </label>
               </div>
             </div>
           </div>
