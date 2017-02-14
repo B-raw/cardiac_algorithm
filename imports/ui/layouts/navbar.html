@@ -35,6 +35,7 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             {{#if currentUser}}
+              <li><a href="/cases" class="{{ isActive 'my-cases' }}">My Cases</a></li>
               <li><a href="#" class="{{ isActive 'my-account' }}" id="my-account">My Account</a></li>
               <li><a href="#" id="logout">Log Out</a></li>
             {{else}}

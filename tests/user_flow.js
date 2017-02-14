@@ -139,34 +139,33 @@ describe('User Flow', function () {
   });
 
   it('can view pathway page from home', function() {
-      browser.url("localhost:3000")
-             .waitForExist("nav");
-      browser.click(".dropdown-toggle")
-             .waitForExist("[href='/pathway']");
-      browser.click("[href='/pathway']")
-             .waitForExist("div");
+    browser.url("localhost:3000")
+           .waitForExist("nav");
+    browser.click(".dropdown-toggle")
+           .waitForExist("[href='/pathway']");
+    browser.click("[href='/pathway']")
+           .waitForExist("div");
 
-      var navbarText = browser.getText("nav");
-      expect(navbarText).to.include("Pathway");
+    var navbarText = browser.getText("nav");
+    expect(navbarText).to.include("Pathway");
 
-      var currentUrl = browser.url().value
-      expect(currentUrl).to.equal("http://localhost:3000/pathway")
+    var currentUrl = browser.url().value
+    expect(currentUrl).to.equal("http://localhost:3000/pathway")
 
   });
 
   it('can view funding page from home', function() {
-      browser.url("localhost:3000")
-             .waitForExist("nav");
-      browser.click(".dropdown-toggle")
-             .waitForExist("[href='/funding']");
-      browser.click("[href='/funding']")
-             .waitForExist("div");
+    browser.url("localhost:3000")
+           .waitForExist("nav");
+    browser.click(".dropdown-toggle")
+           .waitForExist("[href='/funding']");
+    browser.click("[href='/funding']")
+           .waitForExist("div");
 
-      var navbarText = browser.getText(".panel");
-      expect(navbarText).to.include("Funding");
+    var navbarText = browser.getText(".panel");
+    expect(navbarText).to.include("Funding");
 
-      var currentUrl = browser.url().value
-      expect(currentUrl).to.equal("http://localhost:3000/funding")
-
+    var currentUrl = browser.url().value
+    expect(currentUrl).to.equal("http://localhost:3000/funding")
   });
 });

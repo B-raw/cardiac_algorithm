@@ -50,5 +50,25 @@ describe('User registration', function () {
   //
   // });
 
+  it('can view my cases tab from home, only when logged in @watch', function() {
+    browser.url("localhost:3000")
+           .waitForExist("nav");
+    // Don't see when not logged in
+    var navbarText = browser.getText("nav");
+    expect(navbarText).to.not.include("My Cases");
+
+    signUpSignIn(browser, "Bruce", "Wayne", "batman@hotmail.com", "123321")
+
+    browser.url("localhost:3000")
+           .waitForExist("nav");
+    browser.click('[href="/cases"]')
+           .waitForExist("div");
+    // Do see when logged in
+    var navbarText = browser.getText("div");
+    expect(navbarText).to.include("My Cases");
+
+    var currentUrl = browser.url().value
+    expect(currentUrl).to.equal("http://localhost:3000/cases")
+  });
 
 });
