@@ -67,7 +67,9 @@ describe('Cases', function () {
         sixHourTroponin: "15",
       }
 
-      editCase._execute(methodInvocation, caseEdit )
+      editCase._execute(methodInvocation, caseEdit );
+
+      myCase = Cases.findOne()
 
       expect(Cases.find().count()).to.equal(1)
       expect(myCase.baselineTroponin).to.equal("8")

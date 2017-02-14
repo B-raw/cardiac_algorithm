@@ -1,5 +1,6 @@
 import { FlowRouter } from "meteor/kadira:flow-router";
 import { BlazeLayout } from "meteor/kadira:blaze-layout";
+import { clearAllSessions } from "./helpers/clearSessionHelper"
 
 // IMPORTING VIEWS (JS FILES)
 import '../../ui/layouts/mainLayout.js';
@@ -158,11 +159,3 @@ FlowRouter.route('/cases', {
     BlazeLayout.render("mainLayout", { content: "Cases" });
   }
 });
-
-function clearAllSessions() {
-  Session.set('baselineTroponin', null);
-  Session.set('threeHourTroponin', null);
-  Session.set('sixHourTroponin', null);
-  Session.set('patientGender', null);
-  Session.set('painDurationBoolean', null);
-}

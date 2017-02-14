@@ -70,7 +70,6 @@ export const editCase = new ValidatedMethod({
     }
   }).validator(),
   run(newCaseInfo) {
-    console.log(newCaseInfo)
     let caseId = newCaseInfo.caseId;
     let thisCase = Cases.findOne(caseId)
 

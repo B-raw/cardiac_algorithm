@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { insertCase } from '../../api/researchData/methods.js';
+import { clearAllSessions } from "../../startup/client/helpers/clearSessionHelper"
 import './caseInvestigations.html'
 
 Template.CaseInvestigations.events({
@@ -37,15 +38,7 @@ Template.CaseInvestigations.events({
       } else {
         FlowRouter.go('/cases')
 
-        Session.set('patientAge', null)
-        Session.set('patientGender', null)
-        Session.set('painDuration', null)
-        Session.set('historyIschaemia', null)
-        Session.set('ecgIschaemia', null)
-        Session.set('showBaselineTropQuestion', null)
-        Session.set('showThreeHourTropQuestion', null)
-        Session.set('showSixHourTropQuestion', null)
-
+        clearAllSessions();
       }
     });
 

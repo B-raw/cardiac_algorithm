@@ -5,8 +5,11 @@
     </div>
     <div class="panel-body text-center">
       <p>ECG: non-diagnostic</p>
+      {{ #if painDurationEntered }}
+        <p>Onset of symptoms within two hours of presentation: {{ painDurationEntered }}</p>
+      {{ /if }}
       {{ #if baselineTropEntered }}
-        <p>hs-cTnI at Presentation: {{ baselineTropEntered }}</p>
+        <p>Hs-cTnI at Presentation: {{ baselineTropEntered }}</p>
       {{ /if }}
       {{ #if threeHourTropEntered }}
         <p>Three Hour hs-cTnI: {{ threeHourTropEntered }}</p>
