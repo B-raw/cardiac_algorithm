@@ -8,6 +8,7 @@ import './cases.html'
 Template.Cases.onCreated(function() {
   this.editModeCases = new ReactiveVar(false);
   this.individualEditMode = new ReactiveVar(null);
+  Meteor.subscribe('cases');
 });
 
 Template.registerHelper('formatDate', function(date) {

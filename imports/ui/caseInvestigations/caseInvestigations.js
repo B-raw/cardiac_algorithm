@@ -36,6 +36,16 @@ Template.CaseInvestigations.events({
         alert(error.reason)
       } else {
         FlowRouter.go('/cases')
+
+        Session.set('patientAge', null)
+        Session.set('patientGender', null)
+        Session.set('painDuration', null)
+        Session.set('historyIschaemia', null)
+        Session.set('ecgIschaemia', null)
+        Session.set('showBaselineTropQuestion', null)
+        Session.set('showThreeHourTropQuestion', null)
+        Session.set('showSixHourTropQuestion', null)
+
       }
     });
 
