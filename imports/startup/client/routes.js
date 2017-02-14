@@ -55,6 +55,13 @@ FlowRouter.route('/pathway', {
   }
 });
 
+FlowRouter.route('/funding', {
+  name: 'funding',
+  action() {
+    BlazeLayout.render("mainLayout", { content: "Funding" });
+  }
+});
+
 FlowRouter.route('/initial-assessment', {
   name: 'initial-assessment',
   action() {

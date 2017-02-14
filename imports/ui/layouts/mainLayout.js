@@ -25,3 +25,4 @@ import '../cases/cases.js';
 import '../caseInvestigations/caseInvestigations.js';
 import '../pathway/pathway.js';
 import '../viewPathwayButton/viewPathwayButton.js'
+import '../funding/funding.js';

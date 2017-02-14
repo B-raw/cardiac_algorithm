@@ -321,7 +321,7 @@
 	box-shadow: 1px 1px 4px rgba(0,0,0,0.2);
 	background-color: white;
 	border: 1px solid #ccc;
-	width: 430px;
+	width: 280px;
 	max-height: 200px;
 	overflow-y: scroll
 }
@@ -334,8 +334,8 @@
 	border-bottom: 1px solid #ccc
 }
 .country-select .country-list .country {
-	line-height: 11px;
-	padding: 7px 10px
+	line-height: 17px;
+	padding: 4px 10px
 }
 .country-select .country-list .country .dial-code{color:#999}
 .country-select .country-list .country.highlight {

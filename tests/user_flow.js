@@ -153,4 +153,20 @@ describe('User Flow', function () {
       expect(currentUrl).to.equal("http://localhost:3000/pathway")
 
   });
+
+  it('can view funding page from home', function() {
+      browser.url("localhost:3000")
+             .waitForExist("nav");
+      browser.click(".dropdown-toggle")
+             .waitForExist("[href='/funding']");
+      browser.click("[href='/funding']")
+             .waitForExist("div");
+
+      var navbarText = browser.getText(".panel");
+      expect(navbarText).to.include("Funding");
+
+      var currentUrl = browser.url().value
+      expect(currentUrl).to.equal("http://localhost:3000/funding")
+
+  });
 });

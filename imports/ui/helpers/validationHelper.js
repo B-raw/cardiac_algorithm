@@ -1,6 +1,6 @@
 troponinRequirements = {
   required: true,
-  number: true,
+  digits: true,
   min: 0,
   max: 50000,
 }

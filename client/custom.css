@@ -80,13 +80,13 @@ body {
 }
 
 .select-age-box {
-  width: 110px;
+  width: 180px;
   font-weight: normal;
   margin: 10px auto 0 auto;
 }
 
 .select-specialty-box {
-  width: 310px;
+  width: 280px;
   font-weight: normal;
   margin: 10px auto 0 auto;
 }
@@ -183,6 +183,7 @@ ul {
 
 .bhf-logo {
   max-height: 140px;
+  margin: auto;
 }
 
 /* Sign up */

@@ -95,7 +95,7 @@ describe('Six Hour Troponin', function() {
     expect(currentUrl).to.equal("http://localhost:3000/initial-assessment")
   });
 
-  it('shows correct data entered @watch', function() {
+  it('shows correct data entered', function() {
     browser.url("localhost:3000/baseline-troponin")
            .waitForExist("div");
 
