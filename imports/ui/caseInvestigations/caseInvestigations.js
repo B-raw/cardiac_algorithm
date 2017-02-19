@@ -3,6 +3,11 @@ import { Template } from 'meteor/templating';
 import { insertCase } from '../../api/researchData/methods.js';
 import { clearAllSessions } from "../../startup/client/helpers/clearSessionHelper"
 import './caseInvestigations.html'
+import '../helpers/validationHelper.js'
+
+Template.CaseInvestigations.onRendered(function() {
+  $( "#case-investigation-form" ).validate();
+})
 
 Template.CaseInvestigations.events({
   'submit form'(event) {

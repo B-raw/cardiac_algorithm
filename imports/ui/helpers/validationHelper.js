@@ -33,6 +33,12 @@ $.validator.setDefaults({
     },
     painDuration: {
       required: true,
+    },
+    patientAge: {
+      required: true,
+    },
+    ecgIschaemia: {
+      required: true,
     }
   },
   messages: {

@@ -14,10 +14,10 @@ Template.BaselineTroponin.events({
   'submit #baseline-troponin-form'(event) {
     event.preventDefault();
 
-    let painLessThanTwoHoursBoolean;
-    let target = event.target;
-    let baselineTroponin = target.baselineTroponin.value;
-    let patientGender = target.gender.value
+    var painLessThanTwoHoursBoolean;
+    var target = event.target;
+    var baselineTroponin = target.baselineTroponin.value;
+    var patientGender = target.gender.value
 
     if (target.painDuration) {
       painLessThanTwoHoursBoolean = (target.painDuration.value == 'true');
@@ -32,8 +32,8 @@ Template.BaselineTroponin.events({
     routingLogic(target.painDuration, baselineTroponin, painLessThanTwoHoursBoolean, patientGender);
   },
   'blur input[name="baselineTroponin"]'(event) {
-    const target = event.target;
-    const baselineTroponin = target.value;
+    var target = event.target;
+    var baselineTroponin = target.value;
 
     Session.set('baselineTroponin', baselineTroponin);
   },
@@ -42,7 +42,7 @@ Template.BaselineTroponin.events({
 
 Template.BaselineTroponin.helpers({
   tropLessThanFive() {
-    const baselineTroponin = Session.get('baselineTroponin');
+    var baselineTroponin = Session.get('baselineTroponin');
     return (baselineTroponin < 5);
   }
 });

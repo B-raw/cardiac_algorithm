@@ -2,6 +2,11 @@ import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { insertCase } from '../../api/researchData/methods.js';
 import './newCase.html'
+import '../helpers/validationHelper.js'
+
+Template.NewCase.onRendered(function() {
+  $( "#baseline-troponin-form" ).validate();
+})
 
 Template.NewCase.events({
   'submit form'(event) {

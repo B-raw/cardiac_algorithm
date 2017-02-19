@@ -31,7 +31,7 @@ export const insertCase = new ValidatedMethod({
 
   newCase.userId = this.userId
   newCase.createdAt = new Date()
-
+  
   Cases.insert(newCase)
   },
 });
