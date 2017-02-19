@@ -1,39 +1,39 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
-import './baselineTroponin.html'
-import '../helpers/validationHelper.js'
-import '../dataEntered/dataEntered.js'
+import './baselineTroponin.html';
+import '../helpers/validationHelper.js';
+import '../dataEntered/dataEntered.js';
 
-Template.BaselineTroponin.onRendered(function() {
-  this.$(".painTooltip").tooltip();
+Template.BaselineTroponin.onRendered(function () {
+  this.$('.painTooltip').tooltip();
 
-  $( "#baseline-troponin-form" ).validate();
-})
+  $('#baseline-troponin-form').validate();
+});
 
 Template.BaselineTroponin.events({
-  'submit #baseline-troponin-form'(event) {
+  'submit #baseline-troponin-form': function (event) {
     event.preventDefault();
 
-    var painLessThanTwoHoursBoolean;
-    var target = event.target;
-    var baselineTroponin = target.baselineTroponin.value;
-    var patientGender = target.gender.value
+    let painLessThanTwoHoursBoolean;
+    const target = event.target;
+    const baselineTroponin = target.baselineTroponin.value;
+    const patientGender = target.gender.value;
 
     if (target.painDuration) {
       painLessThanTwoHoursBoolean = (target.painDuration.value == 'true');
       Session.set('painDurationBoolean', painLessThanTwoHoursBoolean);
     }
-    //can save these in database at later date
+    // can save these in database at later date
     Session.set({
-      'baselineTroponin': baselineTroponin,
-      'patientGender': patientGender
+      baselineTroponin,
+      patientGender,
     });
 
     routingLogic(target.painDuration, baselineTroponin, painLessThanTwoHoursBoolean, patientGender);
   },
-  'blur input[name="baselineTroponin"]'(event) {
-    var target = event.target;
-    var baselineTroponin = target.value;
+  'blur input[name="baselineTroponin"]': function (event) {
+    const target = event.target;
+    const baselineTroponin = target.value;
 
     Session.set('baselineTroponin', baselineTroponin);
   },
@@ -42,12 +42,12 @@ Template.BaselineTroponin.events({
 
 Template.BaselineTroponin.helpers({
   tropLessThanFive() {
-    var baselineTroponin = Session.get('baselineTroponin');
+    const baselineTroponin = Session.get('baselineTroponin');
     return (baselineTroponin < 5);
-  }
+  },
 });
 
-Template.registerHelper('log', function(what) {
+Template.registerHelper('log', (what) => {
   // You can use `this` and/or `Template.instance()`
   // to get template data access
   console.log(what);
@@ -55,21 +55,19 @@ Template.registerHelper('log', function(what) {
 
 function myocardialInjuryOccurred(baselineTroponin, patientGender) {
   return ((baselineTroponin > 16 && patientGender == 'female') ||
-          (baselineTroponin > 34 && patientGender == 'male'))
+          (baselineTroponin > 34 && patientGender == 'male'));
 }
 
 function myocardialInjuryRuledOut(baselineTroponin, painLessThanTwoHoursBoolean) {
-  return baselineTroponin < 5 && !painLessThanTwoHoursBoolean
+  return baselineTroponin < 5 && !painLessThanTwoHoursBoolean;
 }
 
 function routingLogic(painDuration, baselineTroponin, painLessThanTwoHoursBoolean, patientGender) {
   if (painDuration && myocardialInjuryRuledOut(baselineTroponin, painLessThanTwoHoursBoolean)) {
     FlowRouter.go('miRuledOut');
-  }
-  else if (myocardialInjuryOccurred(baselineTroponin, patientGender)) {
+  } else if (myocardialInjuryOccurred(baselineTroponin, patientGender)) {
     FlowRouter.go('myocardialInjury');
-  }
-  else {
+  } else {
     FlowRouter.go('threeHourTroponin');
   }
 }
