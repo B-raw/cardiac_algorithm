@@ -10,6 +10,25 @@ Template.BaselineTroponin.onRendered(function () {
   $('#baseline-troponin-form').validate();
 });
 
+function myocardialInjuryOccurred(baselineTroponin, patientGender) {
+  return ((baselineTroponin > 16 && patientGender === 'female') ||
+          (baselineTroponin > 34 && patientGender === 'male'));
+}
+
+function myocardialInjuryRuledOut(baselineTroponin, painLessThanTwoHoursBoolean) {
+  return baselineTroponin < 5 && !painLessThanTwoHoursBoolean;
+}
+
+function routingLogic(painDuration, baselineTroponin, painLessThanTwoHoursBoolean, patientGender) {
+  if (painDuration && myocardialInjuryRuledOut(baselineTroponin, painLessThanTwoHoursBoolean)) {
+    FlowRouter.go('miRuledOut');
+  } else if (myocardialInjuryOccurred(baselineTroponin, patientGender)) {
+    FlowRouter.go('myocardialInjury');
+  } else {
+    FlowRouter.go('threeHourTroponin');
+  }
+}
+
 Template.BaselineTroponin.events({
   'submit #baseline-troponin-form': function (event) {
     event.preventDefault();
@@ -20,7 +39,7 @@ Template.BaselineTroponin.events({
     const patientGender = target.gender.value;
 
     if (target.painDuration) {
-      painLessThanTwoHoursBoolean = (target.painDuration.value == 'true');
+      painLessThanTwoHoursBoolean = (target.painDuration.value === 'true');
       Session.set('painDurationBoolean', painLessThanTwoHoursBoolean);
     }
     // can save these in database at later date
@@ -52,22 +71,3 @@ Template.registerHelper('log', (what) => {
   // to get template data access
   console.log(what);
 });
-
-function myocardialInjuryOccurred(baselineTroponin, patientGender) {
-  return ((baselineTroponin > 16 && patientGender == 'female') ||
-          (baselineTroponin > 34 && patientGender == 'male'));
-}
-
-function myocardialInjuryRuledOut(baselineTroponin, painLessThanTwoHoursBoolean) {
-  return baselineTroponin < 5 && !painLessThanTwoHoursBoolean;
-}
-
-function routingLogic(painDuration, baselineTroponin, painLessThanTwoHoursBoolean, patientGender) {
-  if (painDuration && myocardialInjuryRuledOut(baselineTroponin, painLessThanTwoHoursBoolean)) {
-    FlowRouter.go('miRuledOut');
-  } else if (myocardialInjuryOccurred(baselineTroponin, patientGender)) {
-    FlowRouter.go('myocardialInjury');
-  } else {
-    FlowRouter.go('threeHourTroponin');
-  }
-}
