@@ -12,7 +12,7 @@ Template.SixHourTroponin.events({
     event.preventDefault();
 
     let target = event.target;
-    let sixHourTroponin = target.sixHourTroponin.value;
+    let sixHourTroponin = parseInt(target.sixHourTroponin.value, 10);
     let deltaTroponin = sixHourTroponin - Session.get('baselineTroponin')
     //can save these in database at later date
     Session.set({

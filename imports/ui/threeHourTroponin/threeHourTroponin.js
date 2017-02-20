@@ -12,7 +12,7 @@ Template.ThreeHourTroponin.events({
     event.preventDefault();
 
     let target = event.target;
-    let threeHourTroponin = target.threeHourTroponin.value;
+    let threeHourTroponin = parseInt(target.threeHourTroponin.value, 10);
     let deltaTroponin = threeHourTroponin - Session.get('baselineTroponin')
 
     //can save these in database at later date
@@ -37,7 +37,7 @@ Template.ThreeHourTroponin.helpers({
     return Session.get('patientGender');
   },
   troponinCutOff() {
-    return Session.equals('patientGender', "male") ? "34" : "16";
+    return Session.equals('patientGender', "male") ? 34 : 16;
 
   }
 })

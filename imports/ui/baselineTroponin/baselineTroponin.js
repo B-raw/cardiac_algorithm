@@ -35,7 +35,7 @@ Template.BaselineTroponin.events({
 
     let painLessThanTwoHoursBoolean;
     const target = event.target;
-    const baselineTroponin = target.baselineTroponin.value;
+    const baselineTroponin = parseInt(target.baselineTroponin.value, 10);
     const patientGender = target.gender.value;
 
     if (target.painDuration) {
