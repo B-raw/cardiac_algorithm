@@ -4,11 +4,7 @@ import { FlowRouter } from "meteor/kadira:flow-router";
 import './navbar.html';
 
 Template.Navbar.events({
-  'click #backButton'() {
-    event.preventDefault();
-    window.history.back();
-  },
-  'click #logout'() {
+  'click #logout'(event) {
     event.preventDefault();
     Meteor.logout();
 

@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { insertCase } from '../../api/researchData/methods.js';
 import { clearAllSessions } from "../../startup/client/helpers/clearSessionHelper"
+import { getValueFromRadioButton } from '../helpers/getValueFromRadioButton'
 import './caseInvestigations.html'
 import '../helpers/validationHelper.js'
 
@@ -14,7 +15,7 @@ Template.CaseInvestigations.events({
     event.preventDefault();
 
     let target = event.target;
-    let ecgIschaemia = target.ecgIschaemia.value;
+    let ecgIschaemia = getValueFromRadioButton("ecgIschaemia");
 
     var baselineTroponin = (Session.get('showBaselineTropQuestion')) ?
       target.baselineTroponin.value : "-"

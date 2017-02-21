@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
+import { getValueFromRadioButton } from '../helpers/getValueFromRadioButton'
 import './baselineTroponin.html';
 import '../helpers/validationHelper.js';
 import '../dataEntered/dataEntered.js';
@@ -36,10 +37,11 @@ Template.BaselineTroponin.events({
     let painLessThanTwoHoursBoolean;
     const target = event.target;
     const baselineTroponin = parseInt(target.baselineTroponin.value, 10);
-    const patientGender = target.gender.value;
+
+    const patientGender = getValueFromRadioButton("gender");
 
     if (target.painDuration) {
-      painLessThanTwoHoursBoolean = (target.painDuration.value === 'true');
+      painLessThanTwoHoursBoolean = (getValueFromRadioButton("painDuration") === 'true');
       Session.set('painDurationBoolean', painLessThanTwoHoursBoolean);
     }
     // can save these in database at later date

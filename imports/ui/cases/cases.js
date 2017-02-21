@@ -66,7 +66,7 @@ Template.Cases.events({
       }
     });
   },
-  'click .js-delete'() {
+  'click .js-delete'(event) {
     event.preventDefault();
     let target = event.target;
     let caseId = target.id;

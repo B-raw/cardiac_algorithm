@@ -26,5 +26,8 @@ Template.DataEntered.helpers({
     } else {
       return "false"
     }
+  },
+  patientGenderEntered() {
+    return Session.get('patientGender')
   }
 })

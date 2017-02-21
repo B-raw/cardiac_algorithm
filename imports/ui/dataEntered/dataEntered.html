@@ -5,6 +5,9 @@
     </div>
     <div class="panel-body text-center">
       <p>ECG: non-diagnostic</p>
+      {{ #if patientGenderEntered }}
+        <p>Patient Gender: {{ patientGenderEntered }}</p>
+      {{ /if }}
       {{ #if painDurationEntered }}
         <p>Onset of symptoms within two hours of presentation: {{ painDurationEntered }}</p>
       {{ /if }}
