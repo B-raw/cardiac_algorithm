@@ -10,41 +10,44 @@ import '../cases.js'
 describe('Cases', function() {
   before(function() {
     resetDatabase();
+
     Template.Cases.onCreated(function() {
       this.editModeCases = new ReactiveVar(false);
+      // console.log(this.editModeCases)
     });
   });
 
-  // it('click Edit it can delete entries', function () {
-  //   let data = {
-  //     // editModeCases: () => true,
-  //     cases: () => {
-  //       patientAge: "18-30"
-  //     }
-  //   };
-  //
-  //   withRenderedTemplate('Cases', data, el => {
-  //     Template.Cases.onCreated(function() {
-  //       this.editModeCases = new ReactiveVar(true);
-  //     });
-  //     expect($(el).context.innerText).to.include("Exit Edit Mode")
-  //     // expect($(el).context.innerText).to.include("Edit")
-  //     // expect($(el).context.innerHTML).to.include("Delete")
-  //   });
-  // });
-  //
-  // it('not click edit can\'t delete entries', function () {
-  //   let data = {
-  //     // editModeCases: () => false,
-  //   };
-  //
-  //   withRenderedTemplate('Cases', data, el => {
-  //     Template.Cases.onCreated(function() {
-  //       this.editModeCases = new ReactiveVar(false);
-  //     });
-  //     expect($(el).context.innerText).to.include("Edit My Cases")
-  //     // expect($(el).context.innerText).to.not.include("Edit")
-  //     // expect($(el).context.innerHTML).to.not.include("Delete")
-  //   });
-  // });
+  it('click Edit it can delete entries', function () {
+    let data = {
+      editModeCases: () => true,
+      cases: () => {
+        patientAge: "18-30"
+      }
+    };
+    console.log("hello")
+    console.log(this.editModeCases)
+
+    withRenderedTemplate('Cases', data, el => {
+      console.log(data.editModeCases())
+
+      expect($(el).context.innerText).to.include("Exit Edit Mode")
+      // expect($(el).context.innerText).to.include("Edit")
+      // expect($(el).context.innerHTML).to.include("Delete")
+    });
+  });
+
+  it('not click edit can\'t delete entries', function () {
+    let data = {
+      // editModeCases: () => false,
+    };
+
+    withRenderedTemplate('Cases', data, el => {
+      Template.Cases.onCreated(function() {
+        this.editModeCases = new ReactiveVar(false);
+      });
+      expect($(el).context.innerText).to.include("Edit My Cases")
+      // expect($(el).context.innerText).to.not.include("Edit")
+      // expect($(el).context.innerHTML).to.not.include("Delete")
+    });
+  });
 });
