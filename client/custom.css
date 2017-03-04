@@ -126,6 +126,14 @@ button.active-border {
   border: 1px solid blue;
 }
 
+.narrow-input {
+  width: 70px;
+}
+
+.wide-input {
+  width: 150px;
+}
+
 /* LISTS */
 
 ul {

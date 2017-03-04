@@ -15,7 +15,7 @@ $.validator.setDefaults({
       $(element).closest('.form-group').removeClass('has-error').addClass('has-success');
   },
   errorPlacement: function (error, element) {
-    if (element.parent('.input-group').length || element.prop('type') === 'checkbox' || element.prop('type') === 'radio') {
+    if (element.prop('type') === 'checkbox' || element.prop('type') === 'radio') {
       error.insertAfter(element.parent().parent());
     } else if (element.parent().parent('.signup-panel').length) {
       error.insertAfter(element);
@@ -39,7 +39,25 @@ $.validator.setDefaults({
     },
     ecgIschaemia: {
       required: true,
-    }
+    },
+    country: {
+      required: true,
+    },
+    organisation: {
+      required: true,
+    },
+    role: {
+      required: true,
+    },
+    specialty: {
+      required: true,
+    },
+    tsAndCs: {
+      required: true,
+    },
+    email: {
+      required: true,
+    },
   },
   messages: {
     baselineTroponin: {

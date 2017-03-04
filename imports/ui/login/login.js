@@ -5,6 +5,10 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import './login.html';
 import '../helpers/validationHelper.js';
 
+Template.Login.onCreated(function() {
+  this.showPassword = new ReactiveVar(false);
+});
+
 Template.Login.onRendered(() => {
   $('#login-form').validate();
 });
@@ -29,4 +33,21 @@ Template.Login.events({
       }
     });
   },
+  'click #showPassword'(event, template) {
+    event.preventDefault();
+    template.showPassword.set(!template.showPassword.get());
+  }
 });
+
+Template.Login.helpers({
+  showPassword() {
+    if (Template.instance().showPassword.get()) {
+      return "text";
+    } else {
+      return "password";
+    }
+  },
+  showNonSlashEye() {
+    return Template.instance().showPassword.get();
+  }
+})

@@ -4,11 +4,30 @@ describe('User registration', function () {
 
   beforeEach(function () {
     cleanDatabase();
+    browser.url("localhost:3000/");
+
+    server.execute(function(){
+      Accounts.createUser({
+        email: "batman@hotmail.com",
+        password: "123321",
+        about: {
+          firstName: "Bruce",
+          lastName: "Wayne",
+        }
+      });
+    });
+
+    browser.url("localhost:3000/")
+           .waitForExist("div");
+    browser.click('#login')
+           .waitForExist('#email');
+    browser.setValue('#email', "batman@hotmail.com")
+           .setValue('#password', "123321")
+           .click('#submit')
+           .waitForExist('.jumbotron');
   });
 
-  it('click data collection, enter new patient details @watch', function() {
-    signUpSignIn(browser, "Bruce", "Wayne", "batman@hotmail.com", "123321")
-
+  it('click data collection, enter new patient details', function() {
     browser.url("localhost:3000/")
            .waitForExist('#new-patient-loggedin');
     browser.click("#new-patient-loggedin")
@@ -27,6 +46,13 @@ describe('User registration', function () {
     expect(actualText).to.include("When did the symptoms begin (from presentation)?");
     expect(actualText).to.include("Past medical history of ischaemic heart disease?");
 
+    //error messages on clicking submit without filling in fields
+    browser.click('button[type="submit"]')
+           .waitForExist('.help-block');
+    var errorFields = browser.elements(".help-block");
+    expect(errorFields.value.length).to.equal(4);
+
+    //fill in fields
     browser.click('select[name="patientAge"]')
            .waitForExist('[value="41-50"]');
     browser.click('[value="41-50"]')
@@ -46,6 +72,13 @@ describe('User registration', function () {
     var actualText = browser.getText("form");
     expect(actualText).to.include("ECG Ischaemia?");
 
+    //error messages on clicking submit without filling in fields
+    browser.click('button[type="submit"]')
+           .waitForExist('.help-block');
+    var errorFields = browser.elements(".help-block");
+    expect(errorFields.value.length).to.equal(1);
+
+    //fill in fields
     browser.click('input[value="nonDiagnostic"]')
            .click('#baselineTropDone')
            .waitForExist('input[name="baselineTroponin"]');
@@ -80,11 +113,31 @@ describe('User registration', function () {
 
   });
 
+  it('can\'t access cases pages without signing in @watch', function() {
+    browser.url("localhost:3000/")
+           .waitForExist('#new-patient-loggedin');
+    browser.click("#logout")
+           .waitForExist("div");
 
+    browser.url("localhost:3000/cases/new");
 
-  // it('shows correct error messages on not entering cases', function() {
-  //
-  // });
+    var currentUrl = browser.url().value
+    expect(currentUrl).to.not.equal("http://localhost:3000/cases/new")
+    expect(currentUrl).to.equal("http://localhost:3000/")
+
+    browser.url("localhost:3000/cases/new/investigations");
+
+    var currentUrl = browser.url().value
+    expect(currentUrl).to.not.equal("http://localhost:3000/cases/new/investigations")
+    expect(currentUrl).to.equal("http://localhost:3000/")
+
+    browser.url("localhost:3000/cases");
+
+    var currentUrl = browser.url().value
+    expect(currentUrl).to.not.equal("http://localhost:3000/cases")
+    expect(currentUrl).to.equal("http://localhost:3000/")
+
+  });
 
   it('can view my cases tab from home, only when logged in', function() {
     browser.url("localhost:3000")

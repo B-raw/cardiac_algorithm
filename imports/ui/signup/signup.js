@@ -5,11 +5,30 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import './countrySelect.js';
 import './signup.html';
 
+Template.Signup.onCreated(function() {
+  this.showPassword = new ReactiveVar(false);
+});
+
 Template.Signup.onRendered(() => {
   $('#country').countrySelect({
     preferredCountries: ['gb', 'us'],
   });
+
+  $('#signup-form').validate();
 });
+
+Template.Signup.helpers({
+  showPassword() {
+    if (Template.instance().showPassword.get()) {
+      return "text";
+    } else {
+      return "password";
+    }
+  },
+  showNonSlashEye() {
+    return Template.instance().showPassword.get();
+  }
+})
 
 Template.Signup.events({
   'submit form': function (event) {
@@ -40,6 +59,10 @@ Template.Signup.events({
 
     createNewUser(options);
   },
+  'click #showPassword'(event, template) {
+    event.preventDefault();
+    template.showPassword.set(!template.showPassword.get());
+  }
 });
 
 function createNewUser(options) {

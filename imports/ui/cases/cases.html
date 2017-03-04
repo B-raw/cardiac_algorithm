@@ -70,16 +70,16 @@
                       </select>
                     </td> -->
 
-                    <td><input type="number" name="baselineTroponin" class="form-control" value="{{baselineTroponin}}"></td>
-                    <td><input type="number" name="threeHourTroponin" class="form-control" value="{{threeHourTroponin}}"></td>
-                    <td><input type="number" name="sixHourTroponin" class="form-control" value="{{sixHourTroponin}}"></td>
+                    <td><input type="number" name="baselineTroponin" class="form-control narrow-input" value="{{baselineTroponin}}"></td>
+                    <td><input type="number" name="threeHourTroponin" class="form-control narrow-input" value="{{threeHourTroponin}}"></td>
+                    <td><input type="number" name="sixHourTroponin" class="form-control narrow-input" value="{{sixHourTroponin}}"></td>
                     <td>
-                      <select class="form-control pad-select-left" name="finalDiagnosis" id="finalDiagnosis">
+                      <select class="form-control pad-select-left wide-input" name="finalDiagnosis" id="finalDiagnosis">
                         <option value="-">Select diagnosis...</option>
-                        <option value="type 1 myocardial infarction">type 1 myocardial infarction</option>
-                        <option value="type 2 myocardial infarction">type 2 myocardial infarction</option>
-                        <option value="myocardial injury">myocardial injury</option>
-                        <option value="other">other</option>
+                        <option {{isSelected}} value="type 1 myocardial infarction">type 1 myocardial infarction</option>
+                        <option {{isSelected}} value="type 2 myocardial infarction">type 2 myocardial infarction</option>
+                        <option {{isSelected}} value="myocardial injury">myocardial injury</option>
+                        <option {{isSelected}} value="other">other</option>
                       </select>
                     </td>
                     {{ #if editModeCases }}

@@ -31,7 +31,7 @@ export const insertCase = new ValidatedMethod({
 
   newCase.userId = this.userId
   newCase.createdAt = new Date()
-  
+
   Cases.insert(newCase)
   },
 });
@@ -84,8 +84,10 @@ export const editCase = new ValidatedMethod({
     Cases.update({ _id: caseId }, { $set: { baselineTroponin: newCaseInfo.baselineTroponin,
                                             threeHourTroponin: newCaseInfo.threeHourTroponin,
                                             sixHourTroponin: newCaseInfo.sixHourTroponin,
-                                            finalDiagnosis: newCaseInfo.finalDiagnosis
                                           }});
+    if (newCaseInfo.finalDiagnosis) {
+      Cases.update({ _id: caseId }, { $set: { finalDiagnosis: newCaseInfo.finalDiagnosis }});
+    }
   },
 });
 

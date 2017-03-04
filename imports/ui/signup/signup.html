@@ -27,42 +27,42 @@
               </div>
               <div class="form-group">
                 <label for="country">Country</label>
-                <input type="text" class="form-control" id="country"/>
+                <input name="country" type="text" class="form-control" id="country"/>
               </div>
               <div class="form-group">
-                <label for="name">Hospital or Organisation Name</label>
-                <input type="text" class="form-control" id="organisation" placeholder="" required/>
+                <label for="organisation">Hospital or Organisation Name</label>
+                <input type="text" name="organisation" class="form-control" id="organisation" placeholder="" required/>
               </div>
               <div class="form-group">
-                <label for="role">Role
-                  <div class="select-specialty-box" role="toolbar">
-                    <select class="form-control pad-select-left" name="role">
-                      <option value="" disabled selected hidden>Select role...</option>
-                      <option value="Physician">Physician</option>
-                      <option value="Nurse">Nurse</option>
-                      <option value="Researcher">Researcher</option>
-                      <option value="Hospital Manager">Hospital Manager</option>
-                      <option value="Industry">Industry</option>
-                      <option value="Clinical Scientist">Clinical Scientist</option>
-                      <option value="Other">Other</option>
-                    </select>
-                  </div>
-                </label>
+                <label for="role">Role</label>
+                <div class="select-specialty-box" role="toolbar">
+                  <select class="form-control pad-select-left" name="role">
+                    <option value="" disabled selected hidden>Select role...</option>
+                    <option value="Physician">Physician</option>
+                    <option value="Nurse">Nurse</option>
+                    <option value="Researcher">Researcher</option>
+                    <option value="Hospital Manager">Hospital Manager</option>
+                    <option value="Industry">Industry</option>
+                    <option value="Clinical Scientist">Clinical Scientist</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+
               </div>
               <div class="form-group">
-                <label for="specialty">Specialty
-                  <div class="select-specialty-box" role="toolbar">
-                    <select class="form-control pad-select-left" name="specialty">
-                      <option value="" disabled selected hidden>Select specialty...</option>
-                      <option value="Emergency Medicine">Emergency Medicine</option>
-                      <option value="Internal Medicine">Internal Medicine</option>
-                      <option value="General Practice">General Practice</option>
-                      <option value="Cardiology">Cardiology</option>
-                      <option value="Clinical Chemistry">Clinical Chemistry</option>
-                      <option value="Other">Other</option>
-                    </select>
-                  </div>
-                </label>
+                <label for="specialty">Specialty</label>
+                <div class="select-specialty-box" role="toolbar">
+                  <select class="form-control pad-select-left" name="specialty">
+                    <option value="" disabled selected hidden>Select specialty...</option>
+                    <option value="Emergency Medicine">Emergency Medicine</option>
+                    <option value="Internal Medicine">Internal Medicine</option>
+                    <option value="General Practice">General Practice</option>
+                    <option value="Cardiology">Cardiology</option>
+                    <option value="Clinical Chemistry">Clinical Chemistry</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+
               </div>
             </div>
           </div>
@@ -74,14 +74,23 @@
             <div class="panel-body signup-panel">
               <div class="form-group">
                 <label for="email">Email Address</label>
-                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" required/>
+                <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" required/>
                 <small id="emailHelp" class="form-text text-muted">Please consider giving your academic email address for data validation.</small><br>
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
               </div>
 
               <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" placeholder="Password" required/>
+                <div class="input-group">
+                  <input type="{{showPassword}}" name="password" class="form-control" id="password" placeholder="Password" required/>
+                  <span class="input-group-addon" id="showPassword">
+                    {{ #if showNonSlashEye }}
+                      <i class="fa fa-eye-slash" aria-hidden="true"></i>
+                    {{ else }}
+                      <i class="fa fa-eye" aria-hidden="true"></i>
+                    {{ /if }}
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -92,10 +101,10 @@
             </div>
             <div class="panel-body signup-panel">
               <div class="form-check">
-                <label class="form-check-label">
+                <label class="form-check-label form-group">
                   <div class="row signup-panel">
                     <div class="col-xs-1">
-                      <input type="checkbox" class="form-check-input" id="tsAndCs" required>
+                      <input type="checkbox" class="form-check-input" id="tsAndCs" name="tsAndCs" required>
                     </div>
                     <div class="col-xs-10 text-left">
                       You agree to the High-STEACS

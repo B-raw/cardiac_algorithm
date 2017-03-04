@@ -24,6 +24,9 @@ FlowRouter.route('/about', {
 FlowRouter.route('/signup', {
   name: 'signup',
   action() {
+    if(Meteor.userId()) {
+      FlowRouter.go('home');
+    }
     BlazeLayout.render("mainLayout", { content: "Signup" });
   }
 });
@@ -31,6 +34,9 @@ FlowRouter.route('/signup', {
 FlowRouter.route('/login', {
   name: 'login',
   action() {
+    if(Meteor.userId()) {
+      FlowRouter.go('home');
+    }
     BlazeLayout.render("mainLayout", { content: "Login" });
   }
 });
@@ -142,6 +148,9 @@ FlowRouter.route('/6-hour-troponin', {
 FlowRouter.route('/cases/new', {
   name: 'newCase',
   action() {
+    if(!Meteor.userId()) {
+      FlowRouter.go('home');
+    }
     BlazeLayout.render("mainLayout", { content: "NewCase" });
   }
 });
@@ -149,6 +158,9 @@ FlowRouter.route('/cases/new', {
 FlowRouter.route('/cases/new/investigations', {
   name: 'caseInvestigations',
   action() {
+    if(!Meteor.userId()) {
+      FlowRouter.go('home');
+    }
     BlazeLayout.render("mainLayout", { content: "CaseInvestigations" });
   }
 });
@@ -156,6 +168,9 @@ FlowRouter.route('/cases/new/investigations', {
 FlowRouter.route('/cases', {
   name: 'cases',
   action() {
+    if(!Meteor.userId()) {
+      FlowRouter.go('home');
+    }
     BlazeLayout.render("mainLayout", { content: "Cases" });
   }
 });

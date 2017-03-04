@@ -36,21 +36,28 @@ Template.Cases.events({
     event.preventDefault();
     const target = event.target;
     const caseId = target.id;
+    let finalDiagnosis;
 
     const selectBox = document.getElementById('finalDiagnosis');
-    const finalDiagnosis = selectBox.options[selectBox.selectedIndex].value || '-';
+    if (selectBox.options[selectBox.selectedIndex].value == '-') {
+      //if not filled in, do nothing in database
+    } else {
+      finalDiagnosis = selectBox.options[selectBox.selectedIndex].value;
+    }
     const baselineTroponin = document.getElementsByName('baselineTroponin')[0].value || '-';
     const threeHourTroponin = document.getElementsByName('threeHourTroponin')[0].value || '-';
     const sixHourTroponin = document.getElementsByName('sixHourTroponin')[0].value || '-';
-    // var finalDiagnosis = document.getElementsByName("finalDiagnosis")[0].value || "-"
 
-    const newCaseInfo = {
+    let newCaseInfo = {
       caseId,
       baselineTroponin,
       threeHourTroponin,
       sixHourTroponin,
-      finalDiagnosis,
     };
+
+    if (finalDiagnosis) {
+      newCaseInfo.finalDiagnosis = finalDiagnosis
+    }
 
     template.individualEditMode.set(!template.individualEditMode.get());
 
@@ -93,4 +100,10 @@ Template.Cases.helpers({
   individualEditMode(caseId) {
     return (caseId == Template.instance().individualEditMode.get());
   },
+  isSelected(selectedOption) {
+    console.log($(this))
+    // if () {
+    //   return "selected"
+    // }
+  }
 });
