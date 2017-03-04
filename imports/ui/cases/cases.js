@@ -99,11 +99,5 @@ Template.Cases.helpers({
   },
   individualEditMode(caseId) {
     return (caseId == Template.instance().individualEditMode.get());
-  },
-  isSelected(selectedOption) {
-    console.log($(this))
-    // if () {
-    //   return "selected"
-    // }
   }
 });

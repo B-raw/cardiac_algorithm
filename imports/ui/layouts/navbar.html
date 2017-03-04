@@ -25,18 +25,15 @@
                 <li><a href="/privacy-policy">Privacy Policy</a></li>
                 <li><a href="/pathway">Pathway</a></li>
                 <li><a href="/funding">Funding</a></li>
-                <!-- <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li> -->
+                <li><a href="/definition">Definition of Myocardial Infarction</a></li>
               </ul>
             </li>
+            <li class="{{ isActive 'contact' }}"><a href="/contact" id="contact">Contact</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             {{#if currentUser}}
               <li><a href="/cases" class="{{ isActive 'my-cases' }}">My Cases</a></li>
-              <li><a href="#" class="{{ isActive 'my-account' }}" id="my-account">My Account</a></li>
+              <!-- <li><a href="#" class="{{ isActive 'my-account' }}" id="my-account">My Account</a></li> -->
               <li><a href="#" id="logout">Log Out</a></li>
             {{else}}
               <li class="{{ isActive 'login' }}"><a href="/login" id="login">Log In</a></li>

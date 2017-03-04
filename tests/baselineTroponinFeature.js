@@ -32,7 +32,7 @@ describe('Baseline troponin flow', function() {
     expect(currentUrl).to.equal("http://localhost:3000/mi-ruled-out")
 
     var headerText = browser.getText("h2");
-    expect(headerText).to.equal("Myocardial infarction ruled out");
+    expect(headerText).to.contain("Myocardial infarction ruled out");
   });
 
   it('(female AND baseline troponin > 16) routes to MI', function() {
@@ -47,7 +47,7 @@ describe('Baseline troponin flow', function() {
     expect(currentUrl).to.equal("http://localhost:3000/myocardial-injury")
 
     var headerText = browser.getText("h2");
-    expect(headerText).to.contain("Myocardial injury or infarction");
+    expect(headerText).to.contain("Myocardial injury or infarction has occurred");
   });
 
   it('(male AND baseline troponin > 34) routes to MI', function() {
@@ -62,7 +62,7 @@ describe('Baseline troponin flow', function() {
     expect(currentUrl).to.equal("http://localhost:3000/myocardial-injury")
 
     var headerText = browser.getText("h2");
-    expect(headerText).to.contain("Myocardial injury or infarction");
+    expect(headerText).to.contain("Myocardial injury or infarction has occurred");
   });
 
   it('chest pain duration disappears if trop >= 5', function() {

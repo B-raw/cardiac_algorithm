@@ -23,11 +23,10 @@ Template.Login.events({
 
     Meteor.loginWithPassword(email, password, (error) => {
       if (error) {
-        console.log(error.reason);
         $('div#errors').html('<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>')
-                         .html(error.reason)
-                         .addClass('alert alert-danger')
-                         .attr('role', 'alert');
+                       .html(error.reason)
+                       .addClass('alert alert-danger')
+                       .attr('role', 'alert');
       } else {
         FlowRouter.go('home');
       }

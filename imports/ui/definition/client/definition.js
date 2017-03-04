@@ -4,9 +4,9 @@ import { be } from 'meteor/practicalmeteor:chai';
 import { assert } from 'meteor/practicalmeteor:chai';
 import { resetDatabase } from 'meteor/xolvio:cleaner';
 import '../../test_helpers.js'
-import '../funding.js'
+import '../definition.js'
 
-describe('Contact', function() {
+describe('Definition', function() {
   before(function() {
     resetDatabase();
   });
@@ -14,8 +14,8 @@ describe('Contact', function() {
   it('renders funding page correctly', function () {
     const data = {};
 
-    withRenderedTemplate('Funding', data, el => {
-      expect($(el).context.innerText).to.include("Funding");
+    withRenderedTemplate('Definition', data, el => {
+      expect($(el).context.innerText).to.include("Definition of Myocardial Infarction");
     });
   });
 

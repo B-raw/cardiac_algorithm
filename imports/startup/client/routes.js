@@ -69,6 +69,20 @@ FlowRouter.route('/funding', {
   }
 });
 
+FlowRouter.route('/definition', {
+  name: 'definition',
+  action() {
+    BlazeLayout.render("mainLayout", { content: "Definition" });
+  }
+});
+
+FlowRouter.route('/contact', {
+  name: 'contact',
+  action() {
+    BlazeLayout.render("mainLayout", { content: "Contact" });
+  }
+});
+
 FlowRouter.route('/initial-assessment', {
   name: 'initial-assessment',
   action() {

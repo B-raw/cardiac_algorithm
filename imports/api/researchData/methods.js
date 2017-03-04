@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Cases } from './researchData';
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 import { ValidatedMethod } from 'meteor/mdg:validated-method';
+import { DDPRateLimiter } from 'meteor/ddp-rate-limiter';
 
 export const insertCase = new ValidatedMethod({
   name: 'Cases.methods.insert',
@@ -111,3 +112,22 @@ export const deleteCase = new ValidatedMethod({
     Cases.remove({ _id: thisCase._id })
   }
 });
+
+// Get list of all method names on Cases
+const CASES_METHODS = _.pluck([
+  insertCase,
+  deleteCase,
+  editCase,
+], 'name');
+
+if (Meteor.isServer) {
+  // Only allow 5 cases operations per connection per second
+  DDPRateLimiter.addRule({
+    name(name) {
+      return _.contains(CASES_METHODS, name);
+    },
+
+    // Rate limit per connection ID
+    connectionId() { return true; },
+  }, 5, 1000);
+}

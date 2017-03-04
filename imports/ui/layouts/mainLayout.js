@@ -26,3 +26,5 @@ import '../caseInvestigations/caseInvestigations.js';
 import '../pathway/pathway.js';
 import '../viewPathwayButton/viewPathwayButton.js'
 import '../funding/funding.js';
+import '../definition/definition.js';
+import '../contact/contact.js';
