@@ -58,12 +58,17 @@ $.validator.setDefaults({
     email: {
       required: true,
     },
+    password: {
+      minlength: 6,
+    }
   },
   messages: {
     baselineTroponin: {
       required: "Please enter a baseline troponin",
-      // minlength: "Use at least 10 characters, please.",
       // bookUnique: "This book already exists!"
+    },
+    password: {
+      minlength: "Use at least 6 characters, please.",
     },
     gender: {
       required: "Please enter the patient's gender"

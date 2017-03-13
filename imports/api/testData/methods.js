@@ -12,7 +12,7 @@ export const insertTestCase = new ValidatedMethod({
       optional: true
     },
     painLessThanTwoHoursBoolean: {
-      type: String,
+      type: Boolean,
       optional: true
     },
     ecgIschaemia: {
