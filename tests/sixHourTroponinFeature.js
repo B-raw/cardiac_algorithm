@@ -19,7 +19,7 @@ describe('Six Hour Troponin', function() {
     expect(currentUrl).to.equal("http://localhost:3000/six-hour-mi-ruled-out");
 
     var headerText = browser.getText("h3");
-    expect(headerText).to.equal("Myocardial infarction ruled out");
+    expect(headerText).to.include("Myocardial infarction ruled out");
   });
 
   it('6 hour troponin <= 34 in man routes to MI ruled out', function() {
@@ -62,7 +62,7 @@ describe('Six Hour Troponin', function() {
     expect(currentUrl).to.equal("http://localhost:3000/six-hour-myocardial-injury");
 
     var headerText = browser.getText("h2");
-    expect(headerText).to.contain("Myocardial injury or infarction");
+    expect(headerText).to.include("Myocardial injury or infarction has occurred");
 
     var headerText = browser.getText("main");
     expect(headerText).to.contain("Referral to cardiology for inpatient assessment");
@@ -105,7 +105,7 @@ describe('Six Hour Troponin', function() {
            .waitForExist("div");
 
     var dataEnteredText = browser.getText(".panel-body p");
-    expect(dataEnteredText).to.include("hs-cTnI at Presentation: 10");
+    expect(dataEnteredText).to.include("Hs-cTnI at Presentation: 10");
 
     browser.setValue('[name=threeHourTroponin]', "13")
            .click('button[type=submit]')

@@ -15,7 +15,7 @@ describe('Three Hour Troponin', function() {
     expect(currentUrl).to.equal("http://localhost:3000/mi-ruled-out")
 
     var headerText = browser.getText("h2");
-    expect(headerText).to.equal("Myocardial infarction ruled out");
+    expect(headerText).to.include("Myocardial infarction ruled out");
   });
 
   it('(3 hour troponin change <3 AND <= 34 in man) routes to MI ruled out', function() {
@@ -34,7 +34,7 @@ describe('Three Hour Troponin', function() {
     expect(currentUrl).to.equal("http://localhost:3000/mi-ruled-out")
 
     var headerText = browser.getText("h2");
-    expect(headerText).to.equal("Myocardial infarction ruled out");
+    expect(headerText).to.include("Myocardial infarction ruled out");
   });
 
   it('(female AND 3 hour troponin > 16) routes to MI', function() {
@@ -53,7 +53,7 @@ describe('Three Hour Troponin', function() {
     expect(currentUrl).to.equal("http://localhost:3000/myocardial-injury")
 
     var headerText = browser.getText("h2");
-    expect(headerText).to.contain("Myocardial injury or infarction");
+    expect(headerText).to.contain("Myocardial injury or infarction has occurred");
   });
 
   it('(male AND 3 hour troponin > 34) routes to MI', function() {
@@ -72,7 +72,7 @@ describe('Three Hour Troponin', function() {
     expect(currentUrl).to.equal("http://localhost:3000/myocardial-injury")
 
     var headerText = browser.getText("h2");
-    expect(headerText).to.contain("Myocardial injury or infarction");
+    expect(headerText).to.contain("Myocardial injury or infarction has occurred");
   });
 
   it('(male AND  trop change is >3 AND 3 hour troponin is 30) routes to 6 hour trop', function() {
@@ -142,7 +142,7 @@ describe('Three Hour Troponin', function() {
     expect(currentUrl).to.equal("http://localhost:3000/initial-assessment")
   });
 
-  it('3 hour troponin page states pathway information', function() {
+  it('3 hour troponin page states pathway information @watch', function() {
     browser.url("localhost:3000/baseline-troponin")
            .waitForExist("div");
 
@@ -151,12 +151,13 @@ describe('Three Hour Troponin', function() {
            .click('button[type=submit]')
            .waitForExist("div");
 
-    var infoHeaderText = browser.getText(".panel");
+    var infoHeaderText = browser.getText(".panel-heading");
+    console.log(infoHeaderText)
     expect(infoHeaderText).to.contain("Repeat hs-cTnI measured 3 hours after presentation");
 
     var informationText = "In female patients with a troponin ≥ 5 but ≤ 16, a repeat troponin should be taken at 3 hours from presentation"
 
-    var infoText = browser.getText(".panel");
+    var infoText = browser.getText(".panel-body")[0];
     expect(infoText).to.contain(informationText);
   });
 

@@ -28,7 +28,7 @@ describe('TestCases', function () {
 
       newCase = {
         patientGender: "female",
-        painLessThanTwoHoursBoolean: "true",
+        painLessThanTwoHoursBoolean: true,
         ecgIschaemia: "non-diagnostic",
         baselineTroponin: 4,
         threeHourTroponin: 4,

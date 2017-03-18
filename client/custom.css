@@ -45,6 +45,14 @@ body {
   margin-top: 30px;
 }
 
+.jumbotron p {
+  font-size: 14px;
+}
+
+.jumbotron .larger-jumbotron-text {
+  font-size: 18px;
+}
+
 .space-fa {
   margin-right: 8px;
 }
@@ -136,10 +144,18 @@ button.active-border {
 
 /* LISTS */
 
-ul {
+.unstyled-list-bullet {
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+ul {
+  padding-left: 15px;
+}
+
+ul li {
+  padding-left: 10px;
 }
 
 /* FOOTER */

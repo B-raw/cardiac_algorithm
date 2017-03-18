@@ -118,7 +118,7 @@
 				"class": "arrow"
 			}).appendTo(this.selectedFlagInner);
 			// country list contains: preferred countries, then divider, then all countries
-			this.countryList = $("<ul>", {
+			this.countryList = $("<ul class='unstyled-list-bullet'>", {
 				"class": "country-list v-hide"
 			}).appendTo(flagsContainer);
 			if (this.preferredCountries.length) {

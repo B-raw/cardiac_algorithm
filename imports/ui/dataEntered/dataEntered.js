@@ -19,9 +19,9 @@ Template.DataEntered.helpers({
     return Session.get('sixHourTroponin');
   },
   painDurationEntered() {
-    if (Session.get('painDurationBoolean') === null) {
+    if (Session.get('painDurationBoolean') == null) {
       return null;
-    } else if (Session.get('painDurationBoolean') === true) {
+    } else if (Session.get('painDurationBoolean') == true) {
       return "true";
     } else {
       return "false"

@@ -10,9 +10,9 @@ describe('User registration', function () {
     browser.url("localhost:3000/")
            .waitForExist("div");
     var actualText = browser.getText(".jumbotron");
-    expect(actualText).to.include("New Patient");
+    expect(actualText).to.include("Log Case");
     expect(actualText).to.include("Log In Required");
-    expect(actualText).to.include("Test Patient");
+    expect(actualText).to.include("Try Pathway");
 
     var headerText = browser.getText("nav");
     expect(headerText).to.include("Log In");
@@ -65,13 +65,12 @@ describe('User registration', function () {
     browser.waitForExist(".jumbotron");
 
     var jumboText = browser.getText(".jumbotron");
-    expect(jumboText).to.include("New Patient");
+    expect(jumboText).to.include("Log Case");
     // expect(jumboText).to.not.include("Log In Required");
-    expect(jumboText).to.include("Test Patient");
+    expect(jumboText).to.include("Try Pathway");
 
     var newNavText = browser.getText("nav");
     expect(newNavText).to.include("Log Out");
-    expect(newNavText).to.include("My Account");
   });
 
   it('can log out', function() {
@@ -123,8 +122,11 @@ describe('User registration', function () {
   });
 
   it('can choose to register from log in screen', function() {
+      browser.click('#logout')
+             .waitForExist('nav');
+
       browser.url("localhost:3000/login")
-             .waitForExist("div");
+             .waitForExist("#register-from-login");
       browser.click("#register-from-login")
              .waitForExist("div");
 
