@@ -113,7 +113,7 @@ describe('User Flow', function () {
         expect(currentUrl).to.equal("http://localhost:3000/mi-ruled-out")
 
         var headerText = browser.getText(".panel-body");
-        expect(headerText).to.include("discuss with cardiology");
+        expect(headerText[0]).to.include("Optimise secondary prevention, discuss with cardiology");
       });
 
       it('says `letter to cardio` if trop < 5', function() {
@@ -127,13 +127,11 @@ describe('User Flow', function () {
                .click('button[type=submit]')
                .waitForExist('div');
 
-
-
         var currentUrl = browser.url().value
         expect(currentUrl).to.equal("http://localhost:3000/mi-ruled-out")
 
         var headerText = browser.getText(".panel-body");
-        expect(headerText).to.include("copy discharge letter to cardiology");
+        expect(headerText[0]).to.include("copy discharge letter to cardiology");
       });
     });
   });

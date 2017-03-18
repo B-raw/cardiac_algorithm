@@ -99,5 +99,12 @@ Template.Cases.helpers({
   },
   individualEditMode(caseId) {
     return (caseId == Template.instance().individualEditMode.get());
+  },
+  formatIschaemia(ecgIschaemia) {
+    if (ecgIschaemia == "nonDiagnostic") {
+      return "false";
+    } else {
+      return "true";
+    }
   }
 });

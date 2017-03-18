@@ -30,6 +30,7 @@
 
     <div class="row top-buffer">
       <div class="col-sm-12">
+        <p class="text-center">Please provide a final diagnosis for all cases if known - you can do this in retrospect by clicking "Edit My Cases".</p>
         <div class="table-responsive">
           <table class="table table-hover">
             <thead>
@@ -58,7 +59,7 @@
                     <td>{{ patientGender }}</td>
                     <td>{{ painDuration }} hours</td>
                     <td>{{ historyIschaemia }}</td>
-                    <td>{{ ecgIschaemia }}</td>
+                    <td>{{ formatIschaemia ecgIschaemia }}</td>
 
                     <!-- ECG input
                     <td>
@@ -91,7 +92,7 @@
                     <td>{{ patientGender }}</td>
                     <td>{{ painDuration }} hours</td>
                     <td>{{ historyIschaemia }}</td>
-                    <td>{{ ecgIschaemia }}</td>
+                    <td>{{ formatIschaemia ecgIschaemia }}</td>
                     <td>{{ baselineTroponin }}</td>
                     <td>{{ threeHourTroponin }}</td>
                     <td>{{ sixHourTroponin }}</td>
