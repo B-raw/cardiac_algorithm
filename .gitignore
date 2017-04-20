@@ -1,3 +1,6 @@
 node_modules/
 /settings.json
 /.eslintrc.js
+/npm-debug.log
+/.gitignore
+mup.js
