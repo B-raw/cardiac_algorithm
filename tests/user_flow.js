@@ -27,7 +27,7 @@ describe('User Flow', function () {
     expect(currentUrl).to.equal("http://localhost:3000/initial-assessment")
 
     var headerText = browser.getText("h2#initial-assess");
-    expect(headerText).to.equal("Initial Assessment & Management");
+    expect(headerText).to.equal("Take baseline high-sensitivity cardiac troponin I (hs-cTnI)");
 
     var questionText = browser.getText("h2#select-ecg");
     expect(questionText).to.equal("Please select what the ECG showed:");

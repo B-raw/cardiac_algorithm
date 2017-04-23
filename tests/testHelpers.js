@@ -12,7 +12,7 @@ export function signUp(browserName, firstName, lastName, email, password){
              .click("[value='Emergency Medicine']")
              .click('#tsAndCs')
              .click('#login-submit')
-             .waitForExist('.jumbotron');
+             .waitForExist('div.jumbotron');
 }
 
 export function signIn(browserName, email, password) {

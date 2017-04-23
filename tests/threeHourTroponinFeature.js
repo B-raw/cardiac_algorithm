@@ -142,7 +142,7 @@ describe('Three Hour Troponin', function() {
     expect(currentUrl).to.equal("http://localhost:3000/initial-assessment")
   });
 
-  it('3 hour troponin page states pathway information @watch', function() {
+  it('3 hour troponin page states pathway information', function() {
     browser.url("localhost:3000/baseline-troponin")
            .waitForExist("div");
 

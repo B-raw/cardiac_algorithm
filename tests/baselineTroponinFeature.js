@@ -12,7 +12,7 @@ describe('Baseline troponin flow', function() {
     expect(currentUrl).to.equal("http://localhost:3000/baseline-troponin")
 
     var headerText = browser.getText("h2");
-    expect(headerText).to.equal("Non-diagnostic ECG");
+    expect(headerText).to.equal("Review hs-cTnI at presentation");
 
     var bodyText = browser.getText("form");
     expect(bodyText).to.contain("What is the hs-cTnI concentration at presentation (ng/L)?");

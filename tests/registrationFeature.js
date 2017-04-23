@@ -78,7 +78,7 @@ describe('User registration', function () {
 
     browser.waitForExist('#logout');
     browser.click('#logout')
-           .waitForExist('nav');
+           .waitForExist('#login');
 
     var navText = browser.getText("nav");
     expect(navText).to.include("Log In");
