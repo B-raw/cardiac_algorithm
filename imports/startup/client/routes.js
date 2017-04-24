@@ -142,7 +142,7 @@ FlowRouter.route('/six-hour-myocardial-injury', {
 FlowRouter.route('/3-hour-troponin', {
   name: 'threeHourTroponin',
   action() {
-    if(!Session.get('baselineTroponin')) {
+    if (!(Session.get('baselineTroponin') >= 0)) {
       FlowRouter.go('initial-assessment');
     }
     BlazeLayout.render("mainLayout", { content: "ThreeHourTroponin" });
@@ -152,7 +152,7 @@ FlowRouter.route('/3-hour-troponin', {
 FlowRouter.route('/6-hour-troponin', {
   name: 'sixHourTroponin',
   action() {
-    if(!Session.get('baselineTroponin') || !Session.get('threeHourTroponin')) {
+    if (!(Session.get('baselineTroponin') >= 0) || !(Session.get('threeHourTroponin') >= 0)) {
       FlowRouter.go('initial-assessment');
     }
     BlazeLayout.render("mainLayout", { content: "SixHourTroponin" });

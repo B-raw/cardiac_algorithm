@@ -1,6 +1,6 @@
 import { signUpSignIn, signIn, getBrowser, cleanDatabase } from './testHelpers';
 
-describe('User registration @watch', function () {
+describe('User registration', function () {
  describe('when logged in', function() {
    beforeEach(function () {
      cleanDatabase();

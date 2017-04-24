@@ -2,7 +2,7 @@ import { signUpAndSignIn, getBrowser, cleanDatabase } from './testHelpers';
 
 let mainBrowser;
 
-describe('User Flow', function () {
+describe('User Flow @watch', function () {
 
   beforeEach(function () {
     cleanDatabase();
