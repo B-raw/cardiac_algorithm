@@ -108,6 +108,7 @@ FlowRouter.route('/baseline-troponin', {
   name: 'baselineTroponin',
   action() {
     BlazeLayout.render("mainLayout", { content: "BaselineTroponin" });
+    window.scroll(0, 0);
   }
 });
 
@@ -115,6 +116,7 @@ FlowRouter.route('/mi-ruled-out', {
   name: 'miRuledOut',
   action() {
     BlazeLayout.render("mainLayout", { content: "MIRuledOut" });
+    window.scroll(0, 0);
   }
 });
 
@@ -122,6 +124,7 @@ FlowRouter.route('/six-hour-mi-ruled-out', {
   name: 'sixHourMiRuledOut',
   action() {
     BlazeLayout.render("mainLayout", { content: "SixHourMIRuledOut" });
+    window.scroll(0, 0);
   }
 });
 
@@ -129,6 +132,7 @@ FlowRouter.route('/myocardial-injury', {
   name: 'myocardialInjury',
   action() {
     BlazeLayout.render("mainLayout", { content: "MyocardialInjury" });
+    window.scroll(0, 0);
   }
 });
 
@@ -136,6 +140,7 @@ FlowRouter.route('/six-hour-myocardial-injury', {
   name: 'sixHourMyocardialInjury',
   action() {
     BlazeLayout.render("mainLayout", { content: "SixHourMyocardialInjury" });
+    window.scroll(0, 0);
   }
 });
 
@@ -146,6 +151,7 @@ FlowRouter.route('/3-hour-troponin', {
       FlowRouter.go('initial-assessment');
     }
     BlazeLayout.render("mainLayout", { content: "ThreeHourTroponin" });
+    window.scroll(0, 0);
   }
 });
 
@@ -156,6 +162,7 @@ FlowRouter.route('/6-hour-troponin', {
       FlowRouter.go('initial-assessment');
     }
     BlazeLayout.render("mainLayout", { content: "SixHourTroponin" });
+    window.scroll(0, 0);
   }
 });
 
