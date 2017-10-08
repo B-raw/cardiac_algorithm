@@ -15,30 +15,30 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li id="home"><a href="/" data-toggle="collapse" data-target=".navbar-collapse">Restart Pathway</a></li>
-            <li class="{{ isActive 'about' }}"><a href="/about" id="about" data-toggle="collapse" data-target=".navbar-collapse">About</a></li>
+            <li id="home"><a href="/" data-toggle="collapse" data-target=".navbar-collapse.in">Restart Pathway</a></li>
+            <li class="{{ isActive 'about' }}"><a href="/about" id="about" data-toggle="collapse" data-target=".navbar-collapse.in">About</a></li>
             <!-- <li><a href="/contact">Contact</a></li> -->
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Info <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="/terms-conditions" data-toggle="collapse" data-target=".navbar-collapse">Terms &amp; Conditions</a></li>
-                <li><a href="/privacy-policy" data-toggle="collapse" data-target=".navbar-collapse">Privacy Policy</a></li>
-                <li><a href="/pathway" data-toggle="collapse" data-target=".navbar-collapse">Pathway</a></li>
-                <li><a href="/funding" data-toggle="collapse" data-target=".navbar-collapse">Funding</a></li>
-                <li><a href="/definition" data-toggle="collapse" data-target=".navbar-collapse">Definition of Myocardial Infarction</a></li>
+                <li><a href="/terms-conditions" data-toggle="collapse" data-target=".navbar-collapse.in">Terms &amp; Conditions</a></li>
+                <li><a href="/privacy-policy" data-toggle="collapse" data-target=".navbar-collapse.in">Privacy Policy</a></li>
+                <li><a href="/pathway" data-toggle="collapse" data-target=".navbar-collapse.in">Pathway</a></li>
+                <li><a href="/funding" data-toggle="collapse" data-target=".navbar-collapse.in">Funding</a></li>
+                <li><a href="/definition" data-toggle="collapse" data-target=".navbar-collapse.in">Definition of Myocardial Infarction</a></li>
               </ul>
             </li>
-            <li class="{{ isActive 'contact' }}"><a href="/contact" id="contact" data-toggle="collapse" data-target=".navbar-collapse">Contact</a></li>
+            <li class="{{ isActive 'contact' }}"><a href="/contact" id="contact" data-toggle="collapse" data-target=".navbar-collapse.in">Contact</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             {{#if currentUser}}
-              <li><a href="/cases" class="{{ isActive 'my-cases' }}">My Cases</a></li>
+              <li><a href="/cases" class="{{ isActive 'my-cases' }}" data-toggle="collapse" data-target=".navbar-collapse.in">My Cases</a></li>
               <!-- <li><a href="#" class="{{ isActive 'my-account' }}" id="my-account">My Account</a></li> -->
               <li><a href="#" id="logout">Log Out</a></li>
             {{else}}
-              <li class="{{ isActive 'login' }}"><a href="/login" id="login">Log In</a></li>
+              <li class="{{ isActive 'login' }}" data-toggle="collapse" data-target=".navbar-collapse.in"><a href="/login" id="login">Log In</a></li>
               <!-- <li class="active"><a href="./">Static top <span class="sr-only">(current)</span></a></li> -->
-              <li class="{{ isActive 'signup' }}"><a href="/signup" id="signup">Sign Up</a></li>
+              <li class="{{ isActive 'signup' }}" data-toggle="collapse" data-target=".navbar-collapse.in"><a href="/signup" id="signup">Sign Up</a></li>
             {{/if}}
 
           </ul>
